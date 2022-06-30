@@ -1,40 +1,49 @@
+import Images from '../../assets/images';
+
 const Policy = () => {
   return (
     <>
-      <li className="col-6 col-sm-12">
-        <div className=" blog-item blog-item-1">
-          <div className="blog-img">
-            <img src="./images/blog-image1.png" alt="New arrivalsare now in!" />
-          </div>
-          <div className="blog-content">
-            <h4 className="blog-title">New arrivalsare now in!</h4>
-            <a className="btn btn-secondary blog-link" href="#">Show Collection</a>
-          </div>
+      <li className="col-3 col-sm-12 policy-item">
+        <div className="policy-img">
+          <img src={Images.Shipping2} alt="Free Shipping" />
+        </div>
+        <div className="policy-content">
+          <h4 className="policy-title">Free Shipping</h4>
+          <p className="policy-description text-content-policy">All purchases over $199 are eligible for free shipping
+            via USPS First Class Mail.</p>
         </div>
       </li>
-      <li className="col-3 col-sm-6">
-        <div className="blog-item blog-item-2">
-          <div className="blog-img">
-            <img src="./images/blog-image2.png" alt="Basic t-shirts $29,99" />
-          </div>
-          <div className="blog-content">
-            <h4 className="blog-title">Basic t-shirts $29,99</h4>
-            <a className="btn btn-secondary blog-link" href="#">More Detail</a>
-          </div>
+      <li className="col-3 col-sm-12 policy-item">
+        <div className="policy-img">
+          <img src={Images.Payment} alt="Easy Payments" />
+        </div>
+        <div className="policy-content">
+          <h4 className="policy-title policy-active">Easy Payments</h4>
+          <p className="policy-description text-content-policy">All payments are processed instantlyover a secure
+            payment protocol.</p>
         </div>
       </li>
-      <li className="col-3 col-sm-6">
-        <div className="blog-item blog-item-3">
-          <div className="blog-img">
-            <img src="./images/blog-image3.png" alt="Sale this summer" />
-          </div>
-          <span className="badge badge-primary badge-blog">-50%</span>
-          <div className="blog-content">
-            <h4 className="blog-title">Sale this summer</h4>
-            <a className="btn btn-secondary blog-link" href="#">View All</a>
-          </div>
+      <li className="col-3 col-sm-12 policy-item">
+        <div className="policy-img">
+          <img src={Images.Guarantee2} alt="Money-Back Guarantee" />
+        </div>
+        <div className="policy-content">
+          <h4 className="policy-title">Money-Back Guarantee</h4>
+          <p className="policy-description text-content-policy">If an item arrived damaged or you'vechanged your mind,
+            you can send itback for a full refund.</p>
         </div>
       </li>
+      <li className="col-3 col-sm-12 policy-item">
+        <div className="policy-img">
+          <img src={Images.Materials} alt="Finest Quality" />
+        </div>
+        <div className="policy-content">
+          <h4 className="policy-title">Finest Quality</h4>
+          <p className="policy-description text-content-policy">Designed to last, each of our products hasbeen crafted
+            with the finest materials.</p>
+        </div>
+      </li>
+
     </>
   )
 }

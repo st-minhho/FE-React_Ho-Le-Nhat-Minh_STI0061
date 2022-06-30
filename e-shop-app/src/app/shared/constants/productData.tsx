@@ -17,7 +17,7 @@ const ProductData = [
   {
     id: "pd3",
     name: "Basic Slim Fit T-Shirt",
-    price: 79.99,
+    price: 119.99,
     imgSrc: Images.Product3
   },
   {
