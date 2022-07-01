@@ -1,12 +1,11 @@
-import { IProduct } from "../../interfaces/product";
+import { IProduct, ProductData } from "../../interfaces/product";
 import Product from "./Product";
 
-interface ProductData {
-  product: IProduct[];
-}
+// interface ProductData {
+//   product: IProduct[];
+// }
 
 const ProductList = (props : ProductData) => {
-  
 
   const {product} = props
 

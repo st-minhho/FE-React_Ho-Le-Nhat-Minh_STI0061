@@ -18,7 +18,7 @@ export const ProductData = [
   {
     id: "pd3",
     name: "Basic Slim Fit T-Shirt",
-    price: 119.99,
+    price: 79.99,
     discount: 0,
     imgSrc: Images.Product3
   },

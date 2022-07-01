@@ -1,20 +1,4 @@
-header {
-  background-color: map-get($color, "black");
-}
-.section-header {
-  position: relative;
-  width: 100%;
-  .header {
-    &-inner {
-      position: static;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px 0;
-      margin: 0;
-    }
-  }
-}
+
 .section-cart {
   padding: 50px 0;
   
@@ -23,7 +7,7 @@ header {
   padding: 15px;
 }
 
-.product-img {
+.cart-product-img {
   width: 100px;
 }
 .cart_quantity_input {

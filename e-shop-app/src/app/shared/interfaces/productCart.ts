@@ -6,3 +6,7 @@ export interface IProductCart {
   imgSrc: string,
   qty: number
 }
+
+export interface ProductCart {
+  cart: IProductCart[];
+}
