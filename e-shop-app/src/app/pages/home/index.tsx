@@ -5,14 +5,20 @@ import Policies from "./components/Policies";
 import Form from './components/Form';
 import Blog from "./components/Blogs";
 import Banner from "./components/Banner";
+import { useEffect } from "react";
+import { ProductData } from "../../shared/constants/ProductData";
 
 
 const Home = () => {
+  useEffect(()=>{
+    const data = ProductData;
+    localStorage.setItem('product', JSON.stringify(data))
+  },[])
   return (
     <main className="home-page">
       <Banner/>
       <Blog />
-      <Selected/>
+      <Selected />
       <Policies/>
       <Today/>
       <Form/>

@@ -1,4 +1,6 @@
-const BannerPolicy = (props: any) => {
+import { ICampaign } from "../../../../shared/interfaces/campaign";
+
+const BannerPolicy = (props: ICampaign) => {
   return (
     <li className="banner-policy-item">
       <div className="banner-policy-img">

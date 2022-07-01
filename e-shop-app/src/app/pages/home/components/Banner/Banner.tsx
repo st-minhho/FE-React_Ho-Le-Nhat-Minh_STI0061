@@ -18,7 +18,7 @@ const Banner = (props: any) => {
           </div>
         </div>
       </div>
-      <BannerPolicyList data={campaign}/>
+      <BannerPolicyList campaign={campaign}/>
     </>
   )
 }

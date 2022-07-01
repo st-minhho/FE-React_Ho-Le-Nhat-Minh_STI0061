@@ -1,4 +1,6 @@
-const Policy = (props: any) => {
+import { IPolicy } from "../../../../shared/interfaces/policy";
+
+const Policy = (props: IPolicy) => {
   return (
     <li className="col-3 col-sm-12 policy-item">
       <div className="policy-img">
