@@ -32,8 +32,8 @@
       }
 
       &-title {
-        font-weight: map-get($font-weight, font-w700);
-        font-size: map-get($font-size, font-xxl);
+        font-weight: map-get($font-weight, w700);
+        font-size: map-get($font-size, xxl);
         line-height: 101.5%;
       }
 
@@ -57,7 +57,7 @@
 
     &-click {
       font-size: map-get($font-size, font-lg);
-      font-weight: map-get($font-weight, font-w700);
+      font-weight: map-get($font-weight, w700);
       text-decoration: underline;
       text-transform: uppercase;
       color: map-get($color, "white");
@@ -97,12 +97,12 @@
     }
 
     &-title {
-      font-size: map-get($font-size, font-sm);
-      font-weight: map-get($font-weight, font-w700);
+      font-size: map-get($font-size, sm);
+      font-weight: map-get($font-weight, w700);
     }
 
     &-description {
-      font-size: map-get($font-size, font-xs);
+      font-size: map-get($font-size, xs);
     }
   }
 
@@ -148,8 +148,8 @@
       }
 
       &-title {
-        font-weight: 400;
-        font-size: map-get($font-size, font-lg);
+        font-weight: map-get($font-weight, w400);
+        font-size: map-get($font-size, lg);
         line-height: 36px;
         color: map-get($color, "white");
       }
@@ -196,15 +196,15 @@
       }
 
       &-name {
-        font-size: map-get($font-size, font-md);
-        font-weight: map-get($font-weight, font-w300);
+        font-size: map-get($font-size, md-1);
+        font-weight: map-get($font-weight, w300);
       }
 
       &-price {
         display: flex;
         justify-content: space-between;
-        font-weight: map-get($font-weight, font-w400);
-        font-size: map-get($font-size, font-md-3);
+        font-weight: map-get($font-weight, w400);
+        font-size: map-get($font-size, md-3);
       }
     }
   }
@@ -237,8 +237,8 @@
   .policy {
     &-title {
       margin-bottom: 16px;
-      font-size: map-get($font-size, font-md);
-      font-weight: map-get($font-weight, font-w700);
+      font-size: map-get($font-size, md-1);
+      font-weight: map-get($font-weight, w700);
     }
 
     &-img {
@@ -256,7 +256,10 @@
       color: map-get($color, primary-color);
     }
     &-description {
-      font-size: map-get($font-size, font-sm);
+      font-size: map-get($font-size, sm);
+    }
+    &-content {
+      padding-right: 50px;
     }
   }
   /* --Form-- */
@@ -332,7 +335,7 @@
         }
 
         &-title {
-          font-size: map-get($font-size, font-xl-3);
+          font-size: map-get($font-size, xl-3);
         }
       }
     }
@@ -344,7 +347,7 @@
       }
 
       &-click {
-        font-size: map-get($font-size, font-sm);
+        font-size: map-get($font-size, sm);
       }
     }
     .banner-policy {
@@ -384,12 +387,12 @@
         }
 
         &-title {
-          font-size: map-get($font-size, font-sm);
+          font-size: map-get($font-size, sm);
           line-height: 21px;
         }
 
         &-link {
-          font-size: map-get($font-size, font-xxs-2);
+          font-size: map-get($font-size, xxs-2);
           padding: 3px 10px;
         }
       }
@@ -421,18 +424,18 @@
         }
 
         &-name {
-          font-size: map-get($font-size, font-xxs);
+          font-size: map-get($font-size, xxs-3);
         }
 
         &-price {
-          font-size: map-get($font-size, font-xxs-2);
+          font-size: map-get($font-size, xxs-2);
         }
       }
     }
 
     .btn-show {
       border: none;
-      font-size: map-get($font-size, font-xxs-2);
+      font-size: map-get($font-size, xxs-2);
     }
 
     //Policy
@@ -455,12 +458,12 @@
           margin: 0;
         }
         &-title {
-          font-size: map-get($font-size, font-xxs);
+          font-size: map-get($font-size, xxs);
           margin-bottom: 8px;
         }
 
         &-description {
-          font-size: map-get($font-size, font-xxs-2);
+          font-size: map-get($font-size, xxs-2);
         }
 
         &-content {
@@ -491,7 +494,7 @@
       &-title {
         margin-bottom: 24px;
         padding-right: 131px;
-        font-size: map-get($font-size, font-sm);
+        font-size: map-get($font-size, sm);
         line-height: 21px;
       }
 

@@ -1,6 +1,6 @@
 /* --Footer-- */
 .section-footer {
-  font-size: map-get($font-size, font-sm);
+  font-size: map-get($font-size, sm);
   background-color: map-get($color, primary-color);
 
   .footer {
@@ -16,8 +16,8 @@
 
   &-bottom {
     border-top: 1px solid map-get($color, "white");
-    font-weight: map-get($font-weight, font-w400);
-    font-size: map-get($font-size, font-xxs);
+    font-weight: map-get($font-weight, w400);
+    font-size: map-get($font-size, xxs-3);
     line-height: 18px;
     text-align: center;
   }
@@ -55,13 +55,13 @@
 }
 
 .social-list i {
-  font-size: 20px;
+  font-size: map-get($font-size, md-3);
   color: map-get($color, "white");
 }
 
 .sub-item {
   &-link {
-    font-weight: map-get($font-weight, font-w400);
+    font-weight: map-get($font-weight, w400);
     color: map-get($color, "white");
   }
 }
@@ -74,8 +74,8 @@
 
   &-title {
     margin-bottom: 19px;
-    font-size: map-get($font-size, font-md);
-    font-weight: map-get($font-weight, font-w700);
+    font-size: map-get($font-size, md-1);
+    font-weight: map-get($font-weight, w700);
   }
 }
 

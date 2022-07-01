@@ -1,5 +1,5 @@
-const Product = (props: any) => {
 
+const Product = (props: any) => {
 
   return (
     <li className="col-3 col-sm-6 product-item">

@@ -2,7 +2,7 @@
   width: 60px;
   padding: 6px 0;
   border-radius: 20px;
-  font-size: map-get($font-size, font-xxs);
+  font-size: map-get($font-size, xxs-3);
   text-align: center;
 
   &-primary {
@@ -17,6 +17,6 @@
     width: 32px;
     padding: 2px 0;
     border-radius: 9px;
-    font-size: map-get($font-size, font-xxs-3);
+    font-size: map-get($font-size, xxs-1);
   }
 }

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-size: map-get($font-size, font-md);
+  font-size: map-get($font-size, m-1d);
   font-family: $primary-font-family;
   color: map-get($color, "black");
   background-color: map-get($color, "white");

@@ -1,6 +1,6 @@
 import Images from '../../assets/images'
 
-const ProductData = [
+export const ProductData = [
   {
     id: "pd1",
     name: "T-Shirt Summer Vibes",
@@ -27,5 +27,3 @@ const ProductData = [
     imgSrc: Images.Product4
   }
 ]
-
-export default ProductData;

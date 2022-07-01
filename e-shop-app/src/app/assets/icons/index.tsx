@@ -1,5 +1,5 @@
-import Logo from '../icons/logo.svg'
+import Logo from './logo.svg'
 
-const Icon = {
+export const Icons = {
   Logo,
 }
