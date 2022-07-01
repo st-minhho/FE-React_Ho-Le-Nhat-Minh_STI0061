@@ -3,15 +3,17 @@ import { getLocal } from "../../shared/helper/localStorage";
 import CartList from "./CartList";
 
 const Index = () => {
-  const value = JSON.parse(getLocal('cart') || '[]')
-  const [cart, setCart] = useState(value)
+  const cartInit = JSON.parse(getLocal('cart') || '[]')
+  const [cart, setCart] = useState(cartInit)
   // useEffect(() => {
-  //   setCart(value);
+  //   setCart(cartInit);
   // }, [])
 
-  // const handleCart = () => {
-
-  // }
+  const handleCart = (value:any) => {
+    console.log('333',value)
+    setCart(value);
+  }
+  console.log('444',cart)
 
   return (
     <main>
@@ -29,7 +31,7 @@ const Index = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <CartList cart={cart} />
+              <CartList cart={cart} handleCart={handleCart}/>
             </table>
           </div>
           <div className="cart-payment">

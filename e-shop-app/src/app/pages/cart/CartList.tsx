@@ -3,7 +3,8 @@ import Cart from "./Cart";
 
 const CartList = (props: any) => {
   const { cart } = props
-  console.log('222', cart)
+  const { handleCart } = props
+  console.log('222', handleCart)
   return (
     <tbody className="product-cart-list">
       {cart.map((item: IProductCart) => (
@@ -15,6 +16,9 @@ const CartList = (props: any) => {
           discount={item.discount}
           imgSrc={item.imgSrc}
           qty={item.qty}
+
+          handleCart={handleCart}
+
         />
       ))}
     </tbody>

@@ -1,6 +1,9 @@
+import { getLocal, setLocal } from "../../shared/helper/localStorage";
 import { IProductCart, ProductCart } from "../../shared/interfaces/productCart";
 
 const Cart = (props: any) => {
+  const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
+
   let total: number = 0;
   let priceSell: number = props.price
   if(props.discount === 0){
@@ -11,7 +14,10 @@ const Cart = (props: any) => {
   }
   
   const handelDelete = (id:string) => {
-    
+    const newCart = productCart.filter((item: IProductCart) => item.id !== id)
+    console.log('1111',props.handleCart)
+    props.handleCart(newCart)
+    setLocal('cart', newCart)
   } 
 
   return (
