@@ -1,0 +1,48 @@
+$grid-columns : 12;
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1152px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  & > [class*="col-"] {
+    flex: 0 0 auto;
+    padding: 0 10px;
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    max-width: percentage($i / $grid-columns);
+  }
+}
+
+
+@include respond-to-mobile{
+  .container {
+    max-width: 327px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -4px;
+
+    & > [class*="col-"] {
+      flex: 0 0 auto;
+      padding: 0 4px;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    .col-sm-#{$i} {
+      max-width: percentage($i / $grid-columns);
+    }
+  }
+}
+
