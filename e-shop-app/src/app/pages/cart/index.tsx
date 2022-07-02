@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
-import { getLocal } from "../../shared/helper/localStorage";
-import CartList from "./CartList";
+import { useState } from 'react';
+import CartList from './CartList';
+import TotalOrder from './TotalOrder';
+import { getLocal, setLocal } from '../../shared/helper/localStorage';
+import { IProductCart } from '../../shared/interfaces/productCart';
 
 const Index = () => {
-  const cartInit = JSON.parse(getLocal('cart') || '[]')
-  const [cart, setCart] = useState(cartInit)
-  // useEffect(() => {
-  //   setCart(cartInit);
-  // }, [])
+  const cartInit: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
+  const [cart, setCart] = useState(cartInit);
 
-  const handleCart = (value:any) => {
-    console.log('333',value)
+  const handleCart = (value: IProductCart[]) => {
     setCart(value);
-  }
-  console.log('444',cart)
+    setLocal('cart', value);
+  };
 
   return (
     <main>
-      <section className="section-cart">
-        <div className="container">
-          <div className="cart-list">
-            <table className="table-shopping-cart">
-              <thead className="thead-primary">
-                <tr className="text-center">
+      <section className='section-cart'>
+        <div className='container'>
+          <div className='cart-list'>
+            <table className='table-shopping-cart'>
+              <thead className='thead-primary'>
+                <tr className='text-center'>
                   <th>Action</th>
                   <th>Product</th>
                   <th>Product name</th>
@@ -31,21 +29,13 @@ const Index = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <CartList cart={cart} handleCart={handleCart}/>
+              <CartList cart={cart} handleCart={handleCart} />
             </table>
           </div>
-          <div className="cart-payment">
-            <div>
-              <div className="cart-detail">
-                <span>Total:</span>
-                <span id="price-total" />
-              </div>
-              <a href="checkout.html" className="btn btn-primary btn-checkout">Checkout</a>
-            </div>
-          </div>
+          <TotalOrder cart={cart} />
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 export default Index;

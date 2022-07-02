@@ -1,12 +1,11 @@
-import { IProductCart, ProductCart } from "../../shared/interfaces/productCart";
-import Cart from "./Cart";
+import Cart from './Cart';
+import { IProductCart } from '../../shared/interfaces/productCart';
 
 const CartList = (props: any) => {
-  const { cart } = props
-  const { handleCart } = props
-  console.log('222', handleCart)
+  const { cart } = props;
+  const { handleCart } = props;
   return (
-    <tbody className="product-cart-list">
+    <tbody className='product-cart-list'>
       {cart.map((item: IProductCart) => (
         <Cart
           key={item.id}
@@ -16,12 +15,10 @@ const CartList = (props: any) => {
           discount={item.discount}
           imgSrc={item.imgSrc}
           qty={item.qty}
-
           handleCart={handleCart}
-
         />
       ))}
     </tbody>
-  )
-}
+  );
+};
 export default CartList;

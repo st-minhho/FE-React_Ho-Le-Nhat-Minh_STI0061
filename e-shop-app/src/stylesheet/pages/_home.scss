@@ -20,7 +20,7 @@
         background: linear-gradient(
           180deg,
           rgba(0, 0, 0, 0.8) 0%,
-          rgba(0, 0, 0, 0.5) 100%
+          rgba(0, 0, 0, 0.5) 100% 
         );
       }
 
@@ -165,7 +165,7 @@
   /* --product-- */
   .section-products {
     display: flex;
-    padding: 48px 0;
+    //margin-bottom: 48px;
 
     .product {
       &-header {
@@ -181,9 +181,15 @@
 
       &-img {
         position: relative;
-        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
       }
 
+      &-overlay {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+      }
       &-img .badge {
         position: absolute;
         top: 24px;
@@ -193,22 +199,25 @@
       &-content {
         display: flex;
         flex-direction: column;
+        margin-top: 15px;
       }
 
       &-name {
-        font-size: map-get($font-size, md-1);
-        font-weight: map-get($font-weight, w300);
+        font-size: map-get($font-size, font-md);
+        font-weight: map-get($font-weight, font-w300);
       }
 
       &-price {
         display: flex;
         justify-content: space-between;
-        font-weight: map-get($font-weight, w400);
-        font-size: map-get($font-size, md-3);
+        font-weight: map-get($font-weight, font-w400);
+        font-size: map-get($font-size, font-md-3);
       }
     }
   }
-
+  .product-img:hover .product-overlay {
+    display: block;
+  }
   .product-price {
     .sale {
       color: map-get($color, secondary-color);
