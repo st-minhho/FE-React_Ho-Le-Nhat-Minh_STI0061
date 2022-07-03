@@ -1,17 +1,19 @@
-import { useState } from 'react';
 import { getLocal, setLocal } from '../../helper/localStorage';
 import { IProduct } from '../../interfaces/product';
 import { IProductCart } from '../../interfaces/productCart';
 
 const Product = (props: IProduct) => {
+  
   const handleAddToCart = (productID: string) => {
     const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
     const productData: IProduct[] = JSON.parse(getLocal('product') || '[]');
     const product: IProduct = productData.find((obj: IProduct) => obj.id === productID)!
+
     if (productCart) {
       const itemCart = productCart.find((obj: IProductCart) => obj.id === productID)
       if (itemCart) {
         itemCart.qty++
+
       }
       else {
         productCart.push({ ...product, qty: 1 })
@@ -19,7 +21,7 @@ const Product = (props: IProduct) => {
     }
     setLocal('cart', productCart)
   }
-  
+
   return (
     <li className='col-3 col-sm-6 product-item'>
       <a href='#' className='product-link'>

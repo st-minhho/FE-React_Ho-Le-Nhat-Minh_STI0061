@@ -1,8 +1,12 @@
+import { ICartProps, IHandleCartProps } from '../../shared/interfaces/cartProps';
 import { IProductCart } from '../../shared/interfaces/productCart';
-const TotalOrder = (props: any) => {
+
+const TotalOrder = (props: ICartProps) => {
+  console.log(props)
   const { cart } = props;
   let totalOder: number = 0;
   let sum: number = 0;
+
   cart.map((item: IProductCart) => {
     let quantity: number = item.qty;
     let price: number = item.price;

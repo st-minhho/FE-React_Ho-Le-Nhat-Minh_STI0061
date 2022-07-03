@@ -7,8 +7,9 @@ import CategoryList from './CategoriesList';
 
 const Header = () => {
   const {total} = useContext(CartContext) as CartContextType
-  console.log(useContext(CartContext))
-
+  // const {updateTotal} = useContext(CartContext) as CartContextType
+  // updateTotal(JSON.parse(getLocal('cart') || '[]'))
+  
   return (
     <header>
       <div className='container'>

@@ -1,11 +1,11 @@
 import Cart from './Cart';
 import { IProductCart } from '../../shared/interfaces/productCart';
-import { ICart } from '../../shared/interfaces/totalOrder';
-import { ICartProps } from '../../shared/interfaces/cartProps';
+import { IHandleCartProps } from '../../shared/interfaces/cartProps';
 
-const CartList = (props: ICartProps) => {
+const CartList = (props: IHandleCartProps) => {
   const { cart } = props;
   const { handleCart } = props;
+
   return (
     <tbody className='product-cart-list'>
       {cart.map((item: IProductCart) => (

@@ -2,6 +2,10 @@ import { IProductCart } from "./productCart"
 
 export interface ICartProps {
   cart: IProductCart[]
+}
+
+export interface IHandleCartProps {
+  cart: IProductCart[]
   handleCart: (value: IProductCart[]) => void
 }
 
