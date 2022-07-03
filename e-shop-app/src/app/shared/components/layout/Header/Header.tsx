@@ -1,11 +1,13 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
+import { CartContext, CartContextType } from '../../../context/CartContext';
+
 import CategoryList from './CategoriesList';
 
 const Header = () => {
-
-  // const cartContext = useContext(CartContext)
-  // console.log(cartContext)
+  const {total} = useContext(CartContext) as CartContextType
+  console.log(useContext(CartContext))
 
   return (
     <header>
@@ -31,7 +33,7 @@ const Header = () => {
               <li className='action-item'>
                 <Link to='/cart' className='action-link'>
                   <i className='fa fa-shopping-cart' />
-                  <span className='total-cart'>{}</span>
+                  <span className='total-cart'>{total}</span>
                 </Link>
               </li>
               <li className='action-item'>

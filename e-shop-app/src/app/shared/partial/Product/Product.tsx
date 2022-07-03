@@ -17,11 +17,9 @@ const Product = (props: IProduct) => {
         productCart.push({ ...product, qty: 1 })
       }
     }
-    // else {
-    //   productCart.push({ ...product, qty: 1 })
-    // }
     setLocal('cart', productCart)
   }
+  
   return (
     <li className='col-3 col-sm-6 product-item'>
       <a href='#' className='product-link'>

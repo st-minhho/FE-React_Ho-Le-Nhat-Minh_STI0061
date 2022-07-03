@@ -2,17 +2,19 @@ import { useState } from 'react';
 import TotalProduct from '../../shared/helper/totalProduct';
 import { getLocal } from '../../shared/helper/localStorage';
 import { IProductCart } from '../../shared/interfaces/productCart';
+import { ICartItemProps, ICartProps } from '../../shared/interfaces/cartProps';
 
-const Cart = (props: any) => {
+const Cart = (props: ICartItemProps) => {
   const [qty, setQty] = useState('');
   const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
   const total: number = TotalProduct(props.discount, props.price, props.qty);
 
   const handelDelete = (id: string) => {
-
     const newCart = productCart.filter((item: IProductCart) => item.id !== id);
+    console.log(newCart)
     props.handleCart(newCart);
   };
+
   const handlePlus = (id: string) => {
     productCart.map((item) => {
       if (item.id === id) {

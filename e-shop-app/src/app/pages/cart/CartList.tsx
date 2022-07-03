@@ -1,7 +1,9 @@
 import Cart from './Cart';
 import { IProductCart } from '../../shared/interfaces/productCart';
+import { ICart } from '../../shared/interfaces/totalOrder';
+import { ICartProps } from '../../shared/interfaces/cartProps';
 
-const CartList = (props: any) => {
+const CartList = (props: ICartProps) => {
   const { cart } = props;
   const { handleCart } = props;
   return (
@@ -15,6 +17,7 @@ const CartList = (props: any) => {
           discount={item.discount}
           imgSrc={item.imgSrc}
           qty={item.qty}
+          
           handleCart={handleCart}
         />
       ))}
