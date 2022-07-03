@@ -2,14 +2,12 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
 import { CartContext, CartContextType } from '../../../context/CartContext';
-
 import CategoryList from './CategoriesList';
 
 const Header = () => {
-  const {total} = useContext(CartContext) as CartContextType
-  // const {updateTotal} = useContext(CartContext) as CartContextType
-  // updateTotal(JSON.parse(getLocal('cart') || '[]'))
-  
+
+  const { total } = useContext(CartContext) as CartContextType
+
   return (
     <header>
       <div className='container'>
@@ -23,7 +21,7 @@ const Header = () => {
               </h1>
             </Link>
             <nav className='header-nav'>
-              <CategoryList/>
+              <CategoryList />
             </nav>
             <ul className='menu action-list'>
               <li className='action-item'>

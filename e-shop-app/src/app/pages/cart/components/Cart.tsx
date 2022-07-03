@@ -1,17 +1,21 @@
-import { useState } from 'react';
-import TotalProduct from '../../shared/helper/totalProduct';
-import { getLocal } from '../../shared/helper/localStorage';
-import { IProductCart } from '../../shared/interfaces/productCart';
-import { ICartItemProps } from '../../shared/interfaces/cartProps';
+import { useContext, useState } from 'react';
+import TotalProduct from '../../../shared/helper/totalProduct';
+import { getLocal } from '../../../shared/helper/localStorage';
+import { IProductCart } from '../../../shared/interfaces/productCart';
+import { ICartItemProps } from '../../../shared/interfaces/cartProps';
+import { CartContext, CartContextType } from '../../../shared/context/CartContext';
 
 const Cart = (props: ICartItemProps) => {
+  const { handleCart } = props
+  const { handleTotal } = useContext(CartContext) as CartContextType
   const [qty, setQty] = useState('');
   const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
   const total: number = TotalProduct(props.discount, props.price, props.qty);
 
   const handelDelete = (id: string) => {
     const newCart = productCart.filter((item: IProductCart) => item.id !== id);
-    props.handleCart(newCart);
+    handleCart(newCart);
+    handleTotal(newCart);
   };
 
   const handleQuantity = (mess: string, id: string) => {
@@ -33,7 +37,8 @@ const Cart = (props: ICartItemProps) => {
         }
       });
     }
-    props.handleCart(productCart);
+    handleCart(productCart);
+    handleTotal(productCart);
   }
 
   return (

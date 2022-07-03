@@ -6,6 +6,6 @@ export interface IProduct {
   imgSrc: string,
 }
 
-export interface ProductData {
-  product: IProduct[];
+export interface IProductData {
+  products: IProduct[];
 }

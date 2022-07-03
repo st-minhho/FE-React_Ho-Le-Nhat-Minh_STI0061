@@ -1,15 +1,11 @@
-import { IProduct, ProductData } from '../../interfaces/product';
+import { IProduct, IProductData } from '../../interfaces/product';
 import Product from './Product';
 
-// interface ProductData {
-//   product: IProduct[];
-// }
-
-const ProductList = (props : ProductData) => {
-  const {product} = props
+const ProductList = (props : IProductData) => {
+  const {products} = props
   return (
     <ul className='row js-product-list'>
-      {product.map((item:IProduct) => (
+      {products.map((item:IProduct) => (
         <Product
           key={item.id}
           id={item.id}

@@ -1,5 +1,5 @@
-import { createContext, ReactNode, ReactPortal, useEffect, useState } from 'react';
-import { getLocal, setLocal } from '../helper/localStorage';
+import { createContext, useState } from 'react';
+import { setLocal } from '../helper/localStorage';
 import { IProductCart } from '../interfaces/productCart';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 
 export type CartContextType = {
   total: number
-  // updateTotal: (product:IProductCart[]) => void
+  handleTotal: (list: IProductCart[]) => void;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -16,21 +16,17 @@ const CartContext = createContext<CartContextType | null>(null);
 const CartProvider: React.FC<Props> = ({ children }: any) => {
 
   const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    const product:IProductCart[] = JSON.parse(getLocal('cart') || '[]');
+  const handleTotal = (list: IProductCart[]) => {
     let sumQtyCart: number = 0;
-
-    product.map((item: IProductCart) => {
+    list.map((item: IProductCart) => {
       sumQtyCart += item.qty;
     })
     setTotal(sumQtyCart)
-    setLocal('totalOrder', total)
-
-  },[])
+    setLocal('totalOrder', sumQtyCart)
+  }
 
   return (
-    <CartContext.Provider value={{ total }}>
+    <CartContext.Provider value={{ total, handleTotal }}>
       {children}
     </CartContext.Provider>
   )

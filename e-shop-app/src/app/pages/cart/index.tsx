@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import CartList from './CartList';
-import TotalOrder from './TotalOrder';
+import CartList from './components/CartList';
+import TotalOrder from './components/TotalOrder';
 import { getLocal, setLocal } from '../../shared/helper/localStorage';
 import { IProductCart } from '../../shared/interfaces/productCart';
 
 const Index = () => {
   const cartInit: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
   const [cart, setCart] = useState(cartInit);
-
   const handleCart = (value: IProductCart[]) => {
     setCart(value);
     setLocal('cart', value);
