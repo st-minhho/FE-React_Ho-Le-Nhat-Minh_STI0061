@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { CartContext, CartContextType } from '../context/CartContext';
 import { IProductCart } from '../interfaces/ProductCart';
 import { setLocal } from './localStorage';
 
-const TotalCart = (list: IProductCart[]) => {  
+const TotalCart = () => {  
+  const {cart} = useContext(CartContext) as CartContextType
   let sumQtyCart: number = 0;
-    list.map((item: IProductCart) => {
+  cart.map((item: IProductCart) => {
       sumQtyCart += item.qty;
     })
     setLocal('totalOrder', sumQtyCart)

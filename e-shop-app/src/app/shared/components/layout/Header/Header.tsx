@@ -2,12 +2,14 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
 import { CartContext, CartContextType } from '../../../context/CartContext';
+import { setLocal } from '../../../helper/localStorage';
+import TotalCart from '../../../helper/TotalCart';
 import CategoryList from './CategoriesList';
 
 const Header = () => {
 
-  const { total } = useContext(CartContext) as CartContextType
-
+  const { cart } = useContext(CartContext) as CartContextType
+  const count = TotalCart()
   return (
     <header>
       <div className='container'>
@@ -32,7 +34,7 @@ const Header = () => {
               <li className='action-item'>
                 <Link to='/cart' className='action-link'>
                   <i className='fa fa-shopping-cart' />
-                  <span className='badge badge-primary total-cart'>{total}</span>
+                  <span className='badge badge-primary total-cart'>{count}</span>
                 </Link>
               </li>
               <li className='action-item'>

@@ -7,30 +7,30 @@ import TotalProduct from '../../../shared/helper/TotalProduct';
 import TotalCart from '../../../shared/helper/TotalCart';
 import Button from '../../../shared/partial/Button';
 
+
 const Cart = (props: ICartItemProps) => {
-  const { handleCart } = props
-  const { setTotal } = useContext(CartContext) as CartContextType
+  const { cart, setCart } = useContext(CartContext) as CartContextType
+  const productCart = [...cart]
   const [qty, setQty] = useState('');
-  const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
   const total: number = TotalProduct(props.discount, props.price, props.qty);
 
   const handelDelete = (id: string) => {
     const newCart = productCart.filter((item: IProductCart) => item.id !== id);
-    handleCart(newCart);
-    setTotal(TotalCart(newCart));
+    setCart(newCart)
   };
 
-  const handleQuantity = (mess: string, id: string) => {
+  
+  const handleQuantity = (mess: string) => {
     if (mess === 'plus') {
       productCart.map((item) => {
-        if (item.id === id) {
+        if (item.id === props.id) {
           item.qty++;
         }
       });
     } else {
-      const index: number = productCart.findIndex((obj: IProductCart) => obj.id === id);
+      const index: number = productCart.findIndex((obj: IProductCart) => obj.id === props.id);
       productCart.map((item) => {
-        if (item.id === id) {
+        if (item.id === props.id) {
           if (item.qty > 1) {
             item.qty--;
           } else {
@@ -39,8 +39,7 @@ const Cart = (props: ICartItemProps) => {
         }
       });
     }
-    handleCart(productCart);
-    setTotal(TotalCart(productCart));
+    setCart(productCart)
   }
 
   return (
@@ -61,9 +60,9 @@ const Cart = (props: ICartItemProps) => {
       </td>
       <td className='quantity'>
         <div className='js-cart-quantity-button'>
-          <Button onClick={() => handleQuantity('minus', props.id)} className='btn btn-primary js-cart-quantity-down' text='-'/>
+          <Button onClick={() => handleQuantity('minus')} className='btn btn-primary js-cart-quantity-down' text='-'/>
           <input className='cart_quantity_input' type='text' name='quantity' value={props.qty} onChange={(e) => setQty(e.target.value)} />
-          <Button onClick={() => handleQuantity('plus', props.id)} className='btn btn-primary js-cart-quantity-up' text='+'/>
+          <Button onClick={() => handleQuantity('plus')} className='btn btn-primary js-cart-quantity-up' text='+'/>
         </div>
       </td>
       <td className='total'>${total}</td>

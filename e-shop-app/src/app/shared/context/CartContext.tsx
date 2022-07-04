@@ -1,20 +1,22 @@
 import { createContext, useState } from 'react';
+import { getLocal } from '../helper/localStorage';
+import { IProductCart } from '../interfaces/ProductCart';
 
 type Props = {
   children: JSX.Element
 }
 
 export type CartContextType = {
-  total: number
-  setTotal: (total: number) => void;
+  cart: IProductCart[]
+  setCart: (cart: IProductCart[]) => void;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
 
 const CartProvider: React.FC<Props> = ({ children }: any) => {
-  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useState(JSON.parse(getLocal('cart') || '[]'));
   return (
-    <CartContext.Provider value={{ total, setTotal}}>
+    <CartContext.Provider value={{ cart, setCart}}>
       {children}
     </CartContext.Provider>
   )

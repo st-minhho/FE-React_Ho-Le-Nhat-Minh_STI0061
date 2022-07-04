@@ -9,21 +9,21 @@ import SalePrices from './SalePrices';
 import Button from '../Button';
 
 const Product = (props: IProduct) => {
-  const { setTotal } = useContext(CartContext) as CartContextType
+  const { cart, setCart } = useContext(CartContext) as CartContextType
 
   const handleAddToCart = (productID: string) => {
-    const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
-    if (productCart) {
-      const itemCart = productCart.find((obj: IProductCart) => obj.id === productID)
+    const newCart =[...cart]
+    if (newCart) {
+      const itemCart = newCart.find((obj: IProductCart) => obj.id === productID)
       if (itemCart) {
         itemCart.qty++
       }
       else {
-        productCart.push({ ...props, qty: 1 })
+        newCart.push({ ...props, qty: 1 })
       }
     }
-    setLocal('cart', productCart)
-    setTotal(TotalCart(productCart))
+    setLocal('cart', newCart)
+    setCart(newCart)
   }
 
   return (
@@ -33,7 +33,6 @@ const Product = (props: IProduct) => {
         {props.discount !== 0 && <div className='badge badge-primary'>{props.discount * 100}%</div>}
         <div className='product-overlay'>
           <Button onClick={() => handleAddToCart(props.id)} className='btn btn-primary js-add-to-cart' text='Add to cart'/>
-          {/* <button onClick={() => handleAddToCart(props.id)} className='btn btn-primary js-add-to-cart' >Add to cart</button> */}
         </div>
       </div>
       <a href='#' className='product-link'>
