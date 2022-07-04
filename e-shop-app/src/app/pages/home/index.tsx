@@ -6,8 +6,8 @@ import Form from './components/Form';
 import Blog from './components/Blogs';
 import Banner from './components/Banner';
 import { useEffect } from 'react';
-import { ProductData } from '../../shared/constants/ProductData';
 import { setLocal } from '../../shared/helper/localStorage';
+import { ProductData } from '../../shared/constants/productData';
 
 
 const Home = () => {

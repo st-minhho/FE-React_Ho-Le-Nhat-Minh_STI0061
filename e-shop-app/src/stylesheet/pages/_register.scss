@@ -1,0 +1,24 @@
+.section-register{
+  display: flex;
+  justify-content: center;
+  padding: 150px 0 50px;
+}
+.register-form {
+  width: 500px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #eee;
+}
+.register-input {
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+.btn-register {
+  width: 100%;
+}
+
+.erroer{
+  border: 2px solid red;
+}
+

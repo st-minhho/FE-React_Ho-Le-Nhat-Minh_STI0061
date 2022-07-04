@@ -1,10 +1,8 @@
 import { useContext, useState } from 'react';
-import { getLocal } from '../../../shared/helper/localStorage';
 import { IProductCart } from '../../../shared/interfaces/ProductCart';
 import { ICartItemProps } from '../../../shared/interfaces/CartProps';
 import { CartContext, CartContextType } from '../../../shared/context/CartContext';
-import TotalProduct from '../../../shared/helper/TotalProduct';
-import TotalCart from '../../../shared/helper/TotalCart';
+import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 
 
