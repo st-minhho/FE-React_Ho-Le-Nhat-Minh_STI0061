@@ -11,12 +11,18 @@ export type CartContextType = {
   setCart: (cart: IProductCart[]) => void;
 };
 
-const CartContext = createContext<CartContextType | null>(null);
+export type RegisterContextType = {
+  user: string
+  setUser: (isLogin: string) => void;
+};
+
+const CartContext = createContext<CartContextType | RegisterContextType | null>(null);
 
 const CartProvider: React.FC<Props> = ({ children }: any) => {
   const [cart, setCart] = useState(JSON.parse(getLocal('cart') || '[]'));
+  const [user, setUser] = useState(getLocal('token') || '[]');
   return (
-    <CartContext.Provider value={{ cart, setCart}}>
+    <CartContext.Provider value={{ cart, setCart, user, setUser}}>
       {children}
     </CartContext.Provider>
   )

@@ -8,6 +8,11 @@ header {
   position: relative;
   width: 100%;
 
+  .show-email{
+    display: flex;
+    justify-content: flex-end;
+    color: map-get($color, primary-color );
+  }
   .header {
     &-inner {
       position: static;

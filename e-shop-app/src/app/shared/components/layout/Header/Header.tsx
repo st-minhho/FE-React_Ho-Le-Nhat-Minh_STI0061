@@ -1,15 +1,20 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
+import { CartContext, RegisterContextType } from '../../../context/CartContext';
 import TotalCart from '../../../helper/TotalCart';
 import CategoryList from './CategoriesList';
 
 const Header = () => {
 
   const count = TotalCart();
+  const {user} = useContext(CartContext) as RegisterContextType
+  
   return (
     <header>
       <div className="container">
         <div className="section-header">
+        {user!=='[]' &&  <p className="show-email">Acount: {user}</p>}
           <div className="header-inner">
             <Link to="/" className="header-brand">
               <h1 className="brand">
@@ -59,6 +64,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
+          
         </div>
       </div>
     </header>
