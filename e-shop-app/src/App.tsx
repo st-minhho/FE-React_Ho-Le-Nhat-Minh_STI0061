@@ -11,10 +11,6 @@ import Cart from './app/pages/cart'
 import TotalCart from './app/shared/helper/TotalCart';
 
 function App() {
-  const { setTotal } = useContext(CartContext) as CartContextType
-  const products: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
-  setTotal(TotalCart(products))
-
   return (
     <>
       <Header />

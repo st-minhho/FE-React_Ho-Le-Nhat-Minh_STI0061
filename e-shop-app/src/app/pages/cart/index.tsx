@@ -1,18 +1,10 @@
-import { useState } from 'react';
-import { getLocal, setLocal } from '../../shared/helper/localStorage';
-import { IProductCart } from '../../shared/interfaces/ProductCart';
+import { useContext} from 'react';
+import { CartContext, CartContextType } from '../../shared/context/CartContext';
 import CartList from './components/CartList';
 import TotalOrder from './components/TotalOrder';
 
 const Index = () => {
-  const cartInit: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
-  const [cart, setCart] = useState(cartInit);
-  
-  const handleCart = (value: IProductCart[]) => {
-    setCart(value);
-    setLocal('cart', value);
-  };
-
+  const { cart } = useContext(CartContext) as CartContextType
   return (
     <main>
       <section className='section-cart'>
@@ -29,7 +21,8 @@ const Index = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <CartList cart={cart} handleCart={handleCart} />
+              <CartList cart={cart}
+              />
             </table>
           </div>
           <TotalOrder cart={cart} />
