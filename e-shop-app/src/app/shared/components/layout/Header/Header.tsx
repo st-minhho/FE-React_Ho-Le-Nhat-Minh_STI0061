@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
-import { CartContext, RegisterContextType } from '../../../context/CartContext';
+import { GlobalContext, RegisterContextType } from '../../../context/GlobalContext';
 import TotalCart from '../../../helper/TotalCart';
 import CategoryList from './CategoriesList';
 
 const Header = () => {
 
   const count = TotalCart();
-  const {user} = useContext(CartContext) as RegisterContextType
+  const {user} = useContext(GlobalContext) as RegisterContextType
   
   return (
     <header>

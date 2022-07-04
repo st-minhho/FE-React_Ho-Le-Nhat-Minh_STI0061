@@ -5,7 +5,7 @@ import Product from './Product';
 const ProductList = (props : IProductData) => {
   const {products} = props
   return (
-    <ul className='row js-product-list'>
+    <ul className="row js-product-list">
       {products.map((item:IProduct) => (
         <Product
           key={item.id}

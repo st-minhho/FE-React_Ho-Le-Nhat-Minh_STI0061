@@ -12,12 +12,12 @@ const TotalOrder = (props: ICartProps) => {
   });
 
   return (
-    <div className='cart-payment'>
-        <div className='cart-detail'>
-          <span className='cart-total'>Total: ${Math.round(totalOder * 100) / 100}</span>
-          <span id='price-total' />
+    <div className="cart-payment">
+        <div className="cart-detail">
+          <span className="cart-total">Total: ${Math.round(totalOder * 100) / 100}</span>
+          <span id="price-total" />
         </div>
-        <a href='checkout.html' className='btn btn-primary btn-checkout'>Checkout</a>
+        <a href="checkout.html" className="btn btn-primary btn-checkout">Checkout</a>
     </div>
   );
 };

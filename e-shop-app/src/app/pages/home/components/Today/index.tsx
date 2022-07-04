@@ -1,5 +1,5 @@
 import ProductList from '../../../../shared/partial/Product/ProductList';
-import { getLocal } from '../../../../shared/helper/localStorage';
+import { getLocal } from '../../../../shared/helper/LocalStorage';
 import { useState } from 'react';
 const Index = () => {
   const [products, setProduct] = useState(JSON.parse(getLocal('product') || '[]'))

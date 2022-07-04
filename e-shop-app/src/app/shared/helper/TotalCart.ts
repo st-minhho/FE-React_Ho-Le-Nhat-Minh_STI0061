@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { CartContext, CartContextType } from '../context/CartContext';
+import { GlobalContext, CartContextType } from '../context/GlobalContext';
 import { IProductCart } from '../interfaces/ProductCart';
-import { setLocal } from './localStorage';
+import { setLocal } from './LocalStorage';
 
 const TotalCart = () => {  
-  const {cart} = useContext(CartContext) as CartContextType
+  const {cart} = useContext(GlobalContext) as CartContextType
   let sumQtyCart: number = 0;
   cart.map((item: IProductCart) => {
       sumQtyCart += item.qty;

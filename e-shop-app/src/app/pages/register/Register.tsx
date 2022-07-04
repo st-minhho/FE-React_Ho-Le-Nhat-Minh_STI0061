@@ -1,12 +1,13 @@
 import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext, RegisterContextType } from "../../shared/context/CartContext";
-import { setLocal } from "../../shared/helper/localStorage";
+import { GlobalContext, RegisterContextType } from "../../shared/context/GlobalContext";
+import { setLocal } from "../../shared/helper/LocalStorage";
+import Button from "../../shared/partial/Button";
 
 const Register = () => {
   
   const navigate = useNavigate()
-  const {setUser} = useContext(CartContext) as RegisterContextType
+  const {setUser} = useContext(GlobalContext) as RegisterContextType
 
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
@@ -65,7 +66,7 @@ const Register = () => {
           <input className="register-input" type="text" name="email" value={state.email} placeholder="Enter your email" ref={emailRef} onChange={(e) => handleInput(e)} />
           <input className="register-input" type="password" name="password" value={state.password} placeholder="Enter your password" ref={passwordRef} onChange={(e) => handleInput(e)} />
           <input className="register-input" type="password" name="repassword" value={state.repassword} placeholder="Retype your password" ref={repasswordRef} onChange={(e) => handleInput(e)} />
-          <button className="btn btn-primary btn-register" type="submit" >Register</button>
+          <Button className={"btn btn-primary btn-register"} type={"submit"} text={'Register'}/>
         </form>
       </section>
     </main>

@@ -5,7 +5,7 @@ const NormalPrices = (props: IDiscount) => {
   return (
     <>
       {discount !== 0 && (
-        <span className='price-original'>${price}</span>
+        <span className="price-original">${price}</span>
       )}
     </>
 
