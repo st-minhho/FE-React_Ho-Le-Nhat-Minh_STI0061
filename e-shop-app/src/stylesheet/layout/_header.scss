@@ -38,6 +38,7 @@ header {
     gap: 0 24px;
   }
   .action-link {
+    position: relative;
     color: map-get($color, "white");
 
     &:hover {
@@ -48,6 +49,15 @@ header {
 
 .action-hamburger {
   display: none;
+}
+.total-cart {
+  font-size: 10px;
+  position: absolute;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  top: -4px;
+  left: 12px;
 }
 
 @include respond-to-mobile {

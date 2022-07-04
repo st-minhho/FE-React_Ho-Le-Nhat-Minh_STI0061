@@ -1,4 +1,4 @@
-import { IProduct, IProductData } from '../../interfaces/product';
+import { IProduct, IProductData } from '../../interfaces/Product';
 import Product from './Product';
 
 const ProductList = (props : IProductData) => {

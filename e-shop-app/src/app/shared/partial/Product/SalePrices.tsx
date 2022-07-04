@@ -1,4 +1,4 @@
-import { IDiscount } from "../../interfaces/discount";
+import { IDiscount } from '../../interfaces/Discount';
 
 const SalePrices = (props: IDiscount) => {
   const { discount, price } = props;

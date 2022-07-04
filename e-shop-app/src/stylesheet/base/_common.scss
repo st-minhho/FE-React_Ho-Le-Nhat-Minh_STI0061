@@ -30,7 +30,6 @@ input {
   text-align: start;
   appearance: auto;
   -webkit-rtl-ordering: logical;
-  // cursor: text;
   writing-mode: horizontal-tb !important;
 }
 
@@ -59,20 +58,23 @@ table {
   border-collapse: collapse;
 }
 
-.table .thead-primary {
-  background-color: map-get($color, primary-color);
+.thead-primary {
+  height: 50px;
+  color: map-get($color, primary-color);
+  background-color: map-get($color, 'black');
 }
 
-.table .thead-primary tr th {
-  padding: 20px 10px;
-  color: map-get($color, 'white');
+.thead-primary tr {
+  border: 1px solid black;
+}
+.thead-primary tr th {
+  color: map-get($color, 'black ');
   border: 1px solid transparent;
 }
 
-.table tbody tr td {
+tbody tr td {
   text-align: center;
   vertical-align: middle;
   padding: 10px 0;
-  border: 1px solid transparent;
-  border-bottom: 1px solid map-get($color, 'gray');
+  border: 1px solid black;
 }

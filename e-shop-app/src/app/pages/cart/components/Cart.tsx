@@ -1,13 +1,15 @@
 import { useContext, useState } from 'react';
-import TotalProduct from '../../../shared/helper/totalProduct';
 import { getLocal } from '../../../shared/helper/localStorage';
-import { IProductCart } from '../../../shared/interfaces/productCart';
-import { ICartItemProps } from '../../../shared/interfaces/cartProps';
+import { IProductCart } from '../../../shared/interfaces/ProductCart';
+import { ICartItemProps } from '../../../shared/interfaces/CartProps';
 import { CartContext, CartContextType } from '../../../shared/context/CartContext';
+import TotalProduct from '../../../shared/helper/TotalProduct';
+import TotalCart from '../../../shared/helper/TotalCart';
+import Button from '../../../shared/partial/Button';
 
 const Cart = (props: ICartItemProps) => {
   const { handleCart } = props
-  const { handleTotal } = useContext(CartContext) as CartContextType
+  const { setTotal } = useContext(CartContext) as CartContextType
   const [qty, setQty] = useState('');
   const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
   const total: number = TotalProduct(props.discount, props.price, props.qty);
@@ -15,7 +17,7 @@ const Cart = (props: ICartItemProps) => {
   const handelDelete = (id: string) => {
     const newCart = productCart.filter((item: IProductCart) => item.id !== id);
     handleCart(newCart);
-    handleTotal(newCart);
+    setTotal(TotalCart(newCart));
   };
 
   const handleQuantity = (mess: string, id: string) => {
@@ -38,15 +40,13 @@ const Cart = (props: ICartItemProps) => {
       });
     }
     handleCart(productCart);
-    handleTotal(productCart);
+    setTotal(TotalCart(productCart));
   }
 
   return (
     <tr className='product-item'>
       <td className='product-remove'>
-        <button onClick={() => handelDelete(props.id)} className='btn btn-primary js-remove-link'>
-          <i className='fa fa-times' aria-hidden='true'></i>
-        </button>
+        <Button onClick={() => handelDelete(props.id)} className='btn btn-primary js-remove-link' text={<i className='fa fa-times' aria-hidden='true'></i>}/>   
       </td>
       <td className='image-prod'>
         <div className='cart-product-img'>
@@ -61,9 +61,9 @@ const Cart = (props: ICartItemProps) => {
       </td>
       <td className='quantity'>
         <div className='js-cart-quantity-button'>
-          <button onClick={() => handleQuantity('minus', props.id)} className='btn btn-primary js-cart-quantity-down' value='-' > - </button>
+          <Button onClick={() => handleQuantity('minus', props.id)} className='btn btn-primary js-cart-quantity-down' text='-'/>
           <input className='cart_quantity_input' type='text' name='quantity' value={props.qty} onChange={(e) => setQty(e.target.value)} />
-          <button onClick={() => handleQuantity('plus', props.id)} className='btn btn-primary js-cart-quantity-up' value='+'>  + </button>
+          <Button onClick={() => handleQuantity('plus', props.id)} className='btn btn-primary js-cart-quantity-up' text='+'/>
         </div>
       </td>
       <td className='total'>${total}</td>

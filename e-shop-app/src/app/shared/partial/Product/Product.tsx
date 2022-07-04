@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { CartContext, CartContextType } from '../../context/CartContext';
 import { getLocal, setLocal } from '../../helper/localStorage';
-import { IProduct } from '../../interfaces/product';
-import { IProductCart } from '../../interfaces/productCart';
+import { IProduct } from '../../interfaces/Product';
+import { IProductCart } from '../../interfaces/ProductCart';
+import TotalCart from '../../helper/TotalCart';
 import NormalPrices from './NormalPrice';
 import SalePrices from './SalePrices';
+import Button from '../Button';
 
 const Product = (props: IProduct) => {
-  const { handleTotal } = useContext(CartContext) as CartContextType
+  const { setTotal } = useContext(CartContext) as CartContextType
 
   const handleAddToCart = (productID: string) => {
     const productCart: IProductCart[] = JSON.parse(getLocal('cart') || '[]');
@@ -21,7 +23,7 @@ const Product = (props: IProduct) => {
       }
     }
     setLocal('cart', productCart)
-    handleTotal(productCart)
+    setTotal(TotalCart(productCart))
   }
 
   return (
@@ -30,7 +32,8 @@ const Product = (props: IProduct) => {
         <img src={props.imgSrc} alt='T-Shirt Summer Vibes' />
         {props.discount !== 0 && <div className='badge badge-primary'>{props.discount * 100}%</div>}
         <div className='product-overlay'>
-          <button onClick={() => handleAddToCart(props.id)} className='btn btn-primary js-add-to-cart' >Add to cart</button>
+          <Button onClick={() => handleAddToCart(props.id)} className='btn btn-primary js-add-to-cart' text='Add to cart'/>
+          {/* <button onClick={() => handleAddToCart(props.id)} className='btn btn-primary js-add-to-cart' >Add to cart</button> */}
         </div>
       </div>
       <a href='#' className='product-link'>

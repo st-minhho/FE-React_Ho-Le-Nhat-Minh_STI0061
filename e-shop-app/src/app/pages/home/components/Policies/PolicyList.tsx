@@ -1,4 +1,4 @@
-import { IPolicy } from '../../../../shared/interfaces/policy';
+import { IPolicy } from '../../../../shared/interfaces/Policy';
 import Policy from './Policy';
 
 interface PolicyData {

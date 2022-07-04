@@ -32,7 +32,7 @@ const Header = () => {
               <li className='action-item'>
                 <Link to='/cart' className='action-link'>
                   <i className='fa fa-shopping-cart' />
-                  <span className='total-cart'>{total}</span>
+                  <span className='badge badge-primary total-cart'>{total}</span>
                 </Link>
               </li>
               <li className='action-item'>

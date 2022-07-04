@@ -1,5 +1,5 @@
-import { ICartProps, IHandleCartProps } from '../../../shared/interfaces/cartProps';
-import { IProductCart } from '../../../shared/interfaces/productCart';
+import { ICartProps } from '../../../shared/interfaces/CartProps';
+import { IProductCart } from '../../../shared/interfaces/ProductCart';
 
 const TotalOrder = (props: ICartProps) => {
   const { cart } = props;
@@ -13,15 +13,11 @@ const TotalOrder = (props: ICartProps) => {
 
   return (
     <div className='cart-payment'>
-      <div>
         <div className='cart-detail'>
-          <span>Total: ${Math.round(totalOder * 100) / 100}</span>
+          <span className='cart-total'>Total: ${Math.round(totalOder * 100) / 100}</span>
           <span id='price-total' />
         </div>
-        <a href='checkout.html' className='btn btn-primary btn-checkout'>
-          Checkout
-        </a>
-      </div>
+        <a href='checkout.html' className='btn btn-primary btn-checkout'>Checkout</a>
     </div>
   );
 };
