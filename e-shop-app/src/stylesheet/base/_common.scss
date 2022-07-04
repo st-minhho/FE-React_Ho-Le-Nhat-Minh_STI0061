@@ -30,7 +30,6 @@ input {
   text-align: start;
   appearance: auto;
   -webkit-rtl-ordering: logical;
-  // cursor: text;
   writing-mode: horizontal-tb !important;
 }
 
@@ -47,4 +46,35 @@ img {
   input {
     padding: 6px 12px;
   }
+}
+
+.section { 
+  padding: 48px 0;	
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.thead-primary {
+  height: 50px;
+  color: map-get($color, primary-color);
+  background-color: map-get($color, 'black');
+}
+
+.thead-primary tr {
+  border: 1px solid black;
+}
+.thead-primary tr th {
+  color: map-get($color, 'black ');
+  border: 1px solid transparent;
+}
+
+tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 0;
+  border: 1px solid black;
 }

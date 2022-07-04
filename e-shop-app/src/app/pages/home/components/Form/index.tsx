@@ -1,9 +1,9 @@
-import Form from "./Form";
+import Form from './Form';
 
 const Index = () => {
   return (
-    <section className="section section-banner-form">
-      <div className="container ">
+    <section className='section section-banner-form'>
+      <div className='container '>
         <Form />
       </div>
     </section>

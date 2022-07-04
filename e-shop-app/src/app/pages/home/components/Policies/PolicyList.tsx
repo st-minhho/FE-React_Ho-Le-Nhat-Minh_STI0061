@@ -1,17 +1,26 @@
-import Policy from "./Policy";
+import { IPolicy } from '../../../../shared/interfaces/Policy';
+import Policy from './Policy';
 
-const PolicyList = (props:any) => {
- return(
-  <ul className="row policy-list">
-    {props.policies.map((item:any) => (
-      <Policy
-      key={item.id}
-      title={item.title}
-      description={item.description}
-      imgSrc={item.imgSrc}
-      />
-    ))}
-  </ul>
- )
+interface PolicyData {
+  policies: IPolicy[];
+}
+
+const PolicyList = (props: PolicyData) => {
+
+  const { policies } = props
+
+  return (
+    <ul className='row policy-list'>
+      {policies.map((item: IPolicy) => (
+        <Policy
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          imgSrc={item.imgSrc}
+        />
+      ))}
+    </ul>
+  )
 }
 export default PolicyList;

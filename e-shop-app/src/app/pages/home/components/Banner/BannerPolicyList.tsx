@@ -1,10 +1,16 @@
-import BannerPolicy from "./BannerPolicy";
-const BannerPolicyList = (props: any) => {
-  const {data} = props;
+import { ICampaign } from '../../../../shared/interfaces/Campaign';
+import BannerPolicy from './BannerPolicy';
+
+interface CampaignData {
+  campaign: ICampaign[]
+}
+
+const BannerPolicyList = (props: CampaignData) => {
+  const {campaign} = props;
   return (
-    <ul className="banner-policy">
+    <ul className='banner-policy'>
       {
-        data.map((item: any) => (
+        campaign.map((item: ICampaign) => (
           < BannerPolicy
             key={item.id}
             id={item.id}

@@ -5,3 +5,7 @@ export interface IProduct {
   discount: number,
   imgSrc: string,
 }
+
+export interface IProductData {
+  products: IProduct[];
+}

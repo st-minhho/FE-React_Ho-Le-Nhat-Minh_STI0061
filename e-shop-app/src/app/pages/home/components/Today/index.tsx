@@ -1,14 +1,15 @@
-import { ProductData } from "../../../../shared/constants/ProductData";
-import ProductList from "../../../../shared/partial/Product/ProductList";
-
+import ProductList from '../../../../shared/partial/Product/ProductList';
+import { getLocal } from '../../../../shared/helper/localStorage';
+import { useState } from 'react';
 const Index = () => {
+  const [products, setProduct] = useState(JSON.parse(getLocal('product') || '[]'))
   return (
-    <section className="section section-products">
-        <div className="container">
-          <div className="product-header">
-            <h3 className="product title">Products in today</h3>
+    <section className='section section-products'>
+        <div className='container'>
+          <div className='product-header'>
+            <h3 className='product title'>Products in today</h3>
           </div>
-          <ProductList products={ProductData} />
+          <ProductList products={products} />
         </div>
       </section>
   )
