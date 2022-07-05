@@ -1,9 +1,9 @@
-import Selected from './components/Selected';
-import Today from './components/Today';
-import Policies from './components/Policies';
-import Form from './components/Form';
-import Blog from './components/Blogs';
-import Banner from './components/Banner';
+import Selected from './components/selected';
+import Today from './components/today';
+import Policies from './components/policies';
+import Form from './components/form';
+import Blog from './components/blogs';
+import Banner from './components/banner';
 import { useEffect } from 'react';
 import { SetLocal } from '../../shared/helper/localstorage';
 import { ProductData } from '../../shared/constants/productData';
