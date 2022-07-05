@@ -1,4 +1,4 @@
-import { GetLocal} from '../../../../shared/helper/LocalStorage';
+import { GetLocal} from '../../../../shared/helper/localstorage';
 import { useState } from 'react';
 import ProductList from '../../../../shared/partial/Product/ProductList';
 const Index = () => {

@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { GetLocal } from '../helper/LocalStorage';
+import { GetLocal } from '../helper/localstorage';
 import { IProductCart } from '../interfaces/productCart';
 
 type Props = {

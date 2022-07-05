@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext, RegisterContextType } from "../../shared/context/GlobalContext";
-import { SetLocal } from "../../shared/helper/LocalStorage";
+import { SetLocal } from "../../shared/helper/localstorage";
 import Button from "../../shared/partial/Button";
 import Input from "../../shared/partial/Input";
 

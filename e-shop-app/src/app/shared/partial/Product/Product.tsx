@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { GlobalContext, CartContextType } from '../../context/GlobalContext';
-import { SetLocal } from '../../helper/LocalStorage';
+import { SetLocal } from '../../helper/localstorage';
 import { IProduct } from '../../interfaces/product';
 import { IProductCart } from '../../interfaces/productCart';
 import NormalPrices from './NormalPrice';

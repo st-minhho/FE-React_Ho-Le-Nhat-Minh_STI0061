@@ -1,4 +1,4 @@
-import { PolicyData } from '../../../../shared/constants/PolicyData';
+import { PolicyData } from '../../../../shared/constants/policyData';
 import PolicyList from './PolicyList';
 
 const Index = () => {

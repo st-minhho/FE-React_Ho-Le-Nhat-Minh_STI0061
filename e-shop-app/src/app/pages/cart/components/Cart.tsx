@@ -2,8 +2,8 @@ import { useContext, useState } from 'react';
 import { IProductCart } from '../../../shared/interfaces/productCart';
 import { ICartItemProps } from '../../../shared/interfaces/cartProps';
 import { GlobalContext, CartContextType } from '../../../shared/context/GlobalContext';
-import { SetLocal } from '../../../shared/helper/LocalStorage';
-import TotalProduct from '../../../shared/helper/TotalProduct';
+import { SetLocal } from '../../../shared/helper/localstorage';
+import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 
 const Cart = (props: ICartItemProps) => {

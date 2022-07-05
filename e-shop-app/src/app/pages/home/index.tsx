@@ -5,7 +5,7 @@ import Form from './components/Form';
 import Blog from './components/Blogs';
 import Banner from './components/Banner';
 import { useEffect } from 'react';
-import { SetLocal } from '../../shared/helper/LocalStorage';
+import { SetLocal } from '../../shared/helper/localstorage';
 import { ProductData } from '../../shared/constants/productData';
 
 
