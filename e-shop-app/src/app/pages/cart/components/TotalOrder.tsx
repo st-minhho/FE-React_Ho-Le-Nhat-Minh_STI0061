@@ -21,4 +21,5 @@ const TotalOrder = (props: ICartProps) => {
     </div>
   );
 };
+
 export default TotalOrder;

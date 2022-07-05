@@ -8,8 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../../pages/cart/cart.action';
 
 const Product = (props: IProduct) => {
+
   const {carts} = useSelector((state:any) => state.carts )
   const dispatch = useDispatch()
+
   const handleAddToCart = (productID: string) => {
     const newCart =[...carts]
     if (newCart) {
@@ -24,12 +26,12 @@ const Product = (props: IProduct) => {
     setStorage('cart', newCart)
     dispatch(addToCart(newCart))
   }
-
+  
   return (
     <li className="col-3 col-sm-6 product-item">
       <div className="product-img">
-        <img src={props.imgSrc} alt="T-Shirt Summer Vibes" />
-        {props.discount !== 0 && <div className="badge badge-primary">{props.discount * 100}%</div>}
+        <img src={props.image} alt="T-Shirt Summer Vibes" />
+        {props.discount !== 0 && <div className="badge badge-primary">-{props.discount}%</div>}
         <div className="product-overlay">
           <Button onClick={() => handleAddToCart(props.id)} className="btn btn-primary js-add-to-cart" text="Add to cart"/>
         </div>

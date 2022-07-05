@@ -4,8 +4,9 @@ const TotalProduct = (discount: number, price: number, quantity: number) => {
   if (discount === 0) {
     return (total = Math.round(price * quantity * 100) / 100);
   } else {
-    priceSell = price - price * discount;
+    priceSell = price - (price * discount)/100;
   }
   return (total = Math.round(priceSell * quantity * 100) / 100);
 };
+
 export default TotalProduct;

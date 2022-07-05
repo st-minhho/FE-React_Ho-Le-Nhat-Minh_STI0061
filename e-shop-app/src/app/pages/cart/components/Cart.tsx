@@ -4,13 +4,15 @@ import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { decreaseToCart, deleteCart, increaseToCart } from '../cart.action';
+import { handlePrice } from '../../../shared/helper/uniprice';
 
 const Cart = (props: ICartItemProps) => {
-  
-  const { carts } = useSelector((state: any) => state.carts)
+
+  const { carts } = useSelector((state: any) => state.carts);
   const dispatch = useDispatch();
-  const total: number = TotalProduct(props.discount, props.price, props.qty);
   const [qty, setQty] = useState('');
+  const total: number = TotalProduct(props.discount, props.price, props.qty);
+  const price = handlePrice(props.discount, props.price)
 
   const handelDelete = (id: string) => {
     dispatch(deleteCart(id))
@@ -38,14 +40,14 @@ const Cart = (props: ICartItemProps) => {
       </td>
       <td className="image-prod">
         <div className="cart-product-img">
-          <img src={props.imgSrc} alt="" />
+          <img src={props.image} alt="" />
         </div>
       </td>
       <td className="product-name">
         <h4>{props.name}</h4>
       </td>
       <td className="price">
-        ${props.price - Math.round(props.price * props.discount)}
+        ${price}
       </td>
       <td className="quantity">
         <div className="js-cart-quantity-button">
@@ -58,4 +60,5 @@ const Cart = (props: ICartItemProps) => {
     </tr>
   );
 };
+
 export default Cart;

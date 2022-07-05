@@ -3,7 +3,7 @@ export interface IProductCart {
   name: string,
   price: number,
   discount: number,
-  imgSrc: string,
+  image: string,
   qty: number
 }
 

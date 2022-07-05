@@ -9,21 +9,21 @@ export const addToCart = (cart: any) =>{
   }
 }
 
-export const increaseToCart = (id: any) => {
+export const increaseToCart = (id: string) => {
   return{
     type: TYPES.INCREASE_CART,
     payload: id
   }
 }
 
-export const decreaseToCart = (id: any) => {
+export const decreaseToCart = (id: string) => {
   return{
     type: TYPES.DECREASE_CART,
     payload: id
   }
 }
 
-export const deleteCart = (id: any) => {
+export const deleteCart = (id: string) => {
   return{
     type: TYPES.DELETE_CART,
     payload: id
