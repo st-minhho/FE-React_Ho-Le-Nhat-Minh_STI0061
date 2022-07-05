@@ -5,7 +5,6 @@ import NormalPrices from './NormalPrice';
 import SalePrices from './SalePrices';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store';
 import { addToCart } from '../../../pages/cart/cart.action';
 
 const Product = (props: IProduct) => {
@@ -13,7 +12,6 @@ const Product = (props: IProduct) => {
   const dispatch = useDispatch()
   const handleAddToCart = (productID: string) => {
     const newCart =[...carts]
-    console.log('product', newCart)
     if (newCart) {
       const itemCart: IProductCart | null = newCart.find((obj: IProductCart) => obj.id === productID) || null
       if (itemCart) {

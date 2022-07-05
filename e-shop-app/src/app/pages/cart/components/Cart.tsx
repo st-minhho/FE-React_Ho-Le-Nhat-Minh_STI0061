@@ -1,40 +1,34 @@
 import { useState } from 'react';
 import { ICartItemProps } from '../../../shared/interfaces/cartProps';
-import { setStorage } from '../../../shared/helper/localstorage';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, decreaseToCart, deleteCart, increaseToCart } from '../cart.action';
+import { decreaseToCart, deleteCart, increaseToCart } from '../cart.action';
 
 const Cart = (props: ICartItemProps) => {
-  const {carts} = useSelector((state:any) => state.carts )
+  
+  const { carts } = useSelector((state: any) => state.carts)
   const dispatch = useDispatch();
   const total: number = TotalProduct(props.discount, props.price, props.qty);
   const [qty, setQty] = useState('');
-  const productCart = [...carts]
 
   const handelDelete = (id: string) => {
-    dispatch(deleteCart(id))    
+    dispatch(deleteCart(id))
   };
 
   const handleQuantity = (mess: string) => {
     switch (mess) {
-      case 'plus': 
-      dispatch(increaseToCart(props.id))
-      break;
-      // {
-      //   productCart[props.index].qty++
-      //   break;
-      // }
-      case 'minus': {
-        dispatch(decreaseToCart(props.id))
+      case 'plus': {
+        dispatch(increaseToCart(props.id));
         break;
       }
-      default: break;
-    }
-    // setStorage('cart', productCart)
-    // dispatch(addToCart(productCart))
+      case 'minus': {
+        dispatch(decreaseToCart(props.id));
+        break;
+      }
 
+      default: return carts;
+    }
   }
 
   return (

@@ -12,6 +12,7 @@ export const initialState: IInitialState = {
 }
 
 export const cartReducer = (state = initialState, action: IAction) => {
+  
   switch (action.type) {
     case TYPES.ADD_CART: {
       return {
@@ -20,28 +21,34 @@ export const cartReducer = (state = initialState, action: IAction) => {
       };
     }
 
-    case TYPES.INCREASE_CART: {
-      const index = state.carts.findIndex((item:any)=>item.id === action.payload)
-      state.carts[index].qty++
-      setStorage('cart', state.carts)
-      return {
-        ...state,
-        carts: action.payload,
-      }
-    }
-
     case TYPES.DECREASE_CART: {
-      const index = state.carts.findIndex((item:any)=>item.id === action.payload)
-      if (state.carts[index].qty > 1) {
-        state.carts[index].qty--
-      } else {
-        state.carts.splice(index, 1);
+      const newCart = [...state.carts]
+      if(newCart){
+        const index = newCart.findIndex((item:any)=>item.id === action.payload)
+        if (newCart[index].qty > 1) {
+          newCart[index].qty--
+        } else {
+          newCart.splice(index, 1);
+        }
       }
-      setStorage('cart', state.carts)
+      setStorage('cart', newCart)
       return {
         ...state,
-        carts: action.payload,
+        carts: newCart,
+      };
+    }
+    
+    case TYPES.INCREASE_CART: {
+      const newCart = [...state.carts]
+      if(newCart){
+        const index = newCart.findIndex((item:any)=>item.id === action.payload)
+        newCart[index].qty++
       }
+      setStorage('cart', newCart)
+      return {
+        ...state,
+        carts: newCart,
+      };
     }
 
     case TYPES.DELETE_CART: {
@@ -50,8 +57,9 @@ export const cartReducer = (state = initialState, action: IAction) => {
       return {
         ...state,
         carts: newCart
-      }
+      };
     }
+    
     default: return state
   }
 }
