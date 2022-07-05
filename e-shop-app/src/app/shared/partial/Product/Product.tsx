@@ -1,19 +1,21 @@
-import { useContext } from 'react';
-import { GlobalContext, CartContextType } from '../../context/GlobalContext';
-import { SetLocal } from '../../helper/localstorage';
+import { setStorage } from '../../helper/localstorage';
 import { IProduct } from '../../interfaces/product';
 import { IProductCart } from '../../interfaces/productCart';
 import NormalPrices from './NormalPrice';
 import SalePrices from './SalePrices';
 import Button from '../Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store';
+import { addToCart } from '../../../pages/cart/cart.action';
 
 const Product = (props: IProduct) => {
-  const { cart, setCart } = useContext(GlobalContext) as CartContextType
-
+  const {carts} = useSelector((state:any) => state.carts )
+  const dispatch = useDispatch()
   const handleAddToCart = (productID: string) => {
-    const newCart =[...cart]
+    const newCart =[...carts]
+    console.log('product', newCart)
     if (newCart) {
-      const itemCart = newCart.find((obj: IProductCart) => obj.id === productID)
+      const itemCart: IProductCart | null = newCart.find((obj: IProductCart) => obj.id === productID) || null
       if (itemCart) {
         itemCart.qty++
       }
@@ -21,8 +23,8 @@ const Product = (props: IProduct) => {
         newCart.push({ ...props, qty: 1 })
       }
     }
-    SetLocal('cart', newCart)
-    setCart(newCart)
+    setStorage('cart', newCart)
+    dispatch(addToCart(newCart))
   }
 
   return (

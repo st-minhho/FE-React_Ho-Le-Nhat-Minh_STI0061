@@ -1,21 +1,20 @@
-import { useContext, useState } from 'react';
-import { IProductCart } from '../../../shared/interfaces/productCart';
+import { useState } from 'react';
 import { ICartItemProps } from '../../../shared/interfaces/cartProps';
-import { GlobalContext, CartContextType } from '../../../shared/context/GlobalContext';
-import { SetLocal } from '../../../shared/helper/localstorage';
+import { setStorage } from '../../../shared/helper/localstorage';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, deleteCart } from '../cart.action';
 
 const Cart = (props: ICartItemProps) => {
-  const { cart, setCart } = useContext(GlobalContext) as CartContextType
+  const {carts} = useSelector((state:any) => state.carts )
+  const dispatch = useDispatch();
   const total: number = TotalProduct(props.discount, props.price, props.qty);
   const [qty, setQty] = useState('');
-  const productCart = [...cart]
+  const productCart = [...carts]
 
   const handelDelete = (id: string) => {
-    const newCart = productCart.filter((item: IProductCart) => item.id !== id);
-    setCart(newCart)
-    SetLocal('cart', newCart)
+    dispatch(deleteCart(id))    
   };
 
   const handleQuantity = (mess: string) => {
@@ -34,8 +33,9 @@ const Cart = (props: ICartItemProps) => {
       }
       default: break;
     }
-    setCart(productCart)
-    SetLocal('cart', productCart)
+    setStorage('cart', productCart)
+    dispatch(addToCart(productCart))
+
   }
 
   return (

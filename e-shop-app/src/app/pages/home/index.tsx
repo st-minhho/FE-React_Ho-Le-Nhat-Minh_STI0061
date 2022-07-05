@@ -5,14 +5,14 @@ import Form from './components/form';
 import Blog from './components/blogs';
 import Banner from './components/banner';
 import { useEffect } from 'react';
-import { SetLocal } from '../../shared/helper/localstorage';
+import { setStorage } from '../../shared/helper/localstorage';
 import { ProductData } from '../../shared/constants/productData';
 
 
 const Home = () => {
   useEffect(()=>{
     const data = ProductData;
-    SetLocal('product',data)
+    setStorage('product',data)
   },[])
   return (
     <main className='home-page'>
