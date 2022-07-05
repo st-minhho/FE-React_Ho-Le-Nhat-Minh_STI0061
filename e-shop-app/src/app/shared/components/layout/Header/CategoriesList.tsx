@@ -2,7 +2,7 @@ import Category from './Category';
 
 const CategoryList = () => {
   return(
-    <ul className='menu sub-menu-list'>
+    <ul className="menu sub-menu-list">
       <Category/>
     </ul>
   )

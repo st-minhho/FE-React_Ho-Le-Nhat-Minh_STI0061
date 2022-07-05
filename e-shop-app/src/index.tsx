@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import './stylesheet/style.scss'
-import { CartProvider } from './app/shared/context/CartContext';
+import { GlobalProvider } from './app/shared/context/GlobalContext';
 import App from './App';
 
 const root = ReactDOM.createRoot(
@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <CartProvider>
+    <GlobalProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </CartProvider>
+    </GlobalProvider>
   </React.StrictMode>
 );
 reportWebVitals();

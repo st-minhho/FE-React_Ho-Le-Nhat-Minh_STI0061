@@ -1,4 +1,4 @@
-import { ICampaign } from '../../../../shared/interfaces/Campaign';
+import { ICampaign } from '../../../../shared/interfaces/campaign';
 import BannerPolicy from './BannerPolicy';
 
 interface CampaignData {
@@ -8,7 +8,7 @@ interface CampaignData {
 const BannerPolicyList = (props: CampaignData) => {
   const {campaign} = props;
   return (
-    <ul className='banner-policy'>
+    <ul className="banner-policy">
       {
         campaign.map((item: ICampaign) => (
           < BannerPolicy
