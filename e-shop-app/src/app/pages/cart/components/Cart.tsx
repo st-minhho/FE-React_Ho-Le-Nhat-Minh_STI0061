@@ -4,7 +4,7 @@ import { setStorage } from '../../../shared/helper/localstorage';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, deleteCart } from '../cart.action';
+import { addToCart, decreaseToCart, deleteCart, increaseToCart } from '../cart.action';
 
 const Cart = (props: ICartItemProps) => {
   const {carts} = useSelector((state:any) => state.carts )
@@ -19,22 +19,21 @@ const Cart = (props: ICartItemProps) => {
 
   const handleQuantity = (mess: string) => {
     switch (mess) {
-      case 'plus': {
-        productCart[props.index].qty++
-        break;
-      }
+      case 'plus': 
+      dispatch(increaseToCart(props.id))
+      break;
+      // {
+      //   productCart[props.index].qty++
+      //   break;
+      // }
       case 'minus': {
-        if (productCart[props.index].qty > 1) {
-          productCart[props.index].qty--
-        } else {
-          productCart.splice(props.index, 1);
-        }
+        dispatch(decreaseToCart(props.id))
         break;
       }
       default: break;
     }
-    setStorage('cart', productCart)
-    dispatch(addToCart(productCart))
+    // setStorage('cart', productCart)
+    // dispatch(addToCart(productCart))
 
   }
 

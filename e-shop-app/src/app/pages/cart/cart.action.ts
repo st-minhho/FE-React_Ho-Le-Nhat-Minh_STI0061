@@ -9,9 +9,16 @@ export const addToCart = (cart: any) =>{
   }
 }
 
-export const updateToCart = (id: any) => {
+export const increaseToCart = (id: any) => {
   return{
-    type: TYPES.UPDATE_CART,
+    type: TYPES.INCREASE_CART,
+    payload: id
+  }
+}
+
+export const decreaseToCart = (id: any) => {
+  return{
+    type: TYPES.DECREASE_CART,
     payload: id
   }
 }

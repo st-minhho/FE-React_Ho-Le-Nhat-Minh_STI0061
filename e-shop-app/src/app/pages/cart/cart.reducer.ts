@@ -19,6 +19,31 @@ export const cartReducer = (state = initialState, action: IAction) => {
         carts: action.payload,
       };
     }
+
+    case TYPES.INCREASE_CART: {
+      const index = state.carts.findIndex((item:any)=>item.id === action.payload)
+      state.carts[index].qty++
+      setStorage('cart', state.carts)
+      return {
+        ...state,
+        carts: action.payload,
+      }
+    }
+
+    case TYPES.DECREASE_CART: {
+      const index = state.carts.findIndex((item:any)=>item.id === action.payload)
+      if (state.carts[index].qty > 1) {
+        state.carts[index].qty--
+      } else {
+        state.carts.splice(index, 1);
+      }
+      setStorage('cart', state.carts)
+      return {
+        ...state,
+        carts: action.payload,
+      }
+    }
+
     case TYPES.DELETE_CART: {
       const newCart = state.carts.filter((item: IProductCart) => item.id !== action.payload)
       setStorage('cart', newCart)
