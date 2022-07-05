@@ -1,5 +1,5 @@
 import Images from '../../../../assets/images';
-import campaignData from '../../../../shared/constants/CampaignData';
+import campaignData from '../../../../shared/constants/campaignData';
 import BannerPolicyList from './BannerPolicyList';
 
 const Index = () => {

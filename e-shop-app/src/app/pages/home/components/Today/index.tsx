@@ -1,8 +1,8 @@
 import ProductList from '../../../../shared/partial/Product/ProductList';
-import { getLocal } from '../../../../shared/helper/LocalStorage';
+import { GetLocal } from '../../../../shared/helper/LocalStorage';
 import { useState } from 'react';
 const Index = () => {
-  const [products, setProduct] = useState(JSON.parse(getLocal('product') || '[]'))
+  const [products, setProduct] = useState(JSON.parse(GetLocal('product') || '[]'))
   return (
     <section className='section section-products'>
         <div className='container'>

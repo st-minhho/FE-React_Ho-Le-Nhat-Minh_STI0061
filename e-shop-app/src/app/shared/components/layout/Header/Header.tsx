@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
 import { GlobalContext, RegisterContextType } from '../../../context/GlobalContext';
-import TotalCart from '../../../helper/TotalCart';
+import TotalCart from '../../../helper/totalCart';
 import CategoryList from './CategoriesList';
 
 const Header = () => {

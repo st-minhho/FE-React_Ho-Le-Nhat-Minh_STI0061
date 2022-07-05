@@ -1,5 +1,5 @@
-import { ICartProps } from '../../../shared/interfaces/CartProps';
-import { IProductCart } from '../../../shared/interfaces/ProductCart';
+import { ICartProps } from '../../../shared/interfaces/cartProps';
+import { IProductCart } from '../../../shared/interfaces/productCart';
 
 const TotalOrder = (props: ICartProps) => {
   const { cart } = props;

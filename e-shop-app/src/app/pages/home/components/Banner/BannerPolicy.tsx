@@ -1,4 +1,4 @@
-import { ICampaign } from '../../../../shared/interfaces/Campaign';
+import { ICampaign } from '../../../../shared/interfaces/campaign';
 
 const BannerPolicy = (props: ICampaign) => {
   return (

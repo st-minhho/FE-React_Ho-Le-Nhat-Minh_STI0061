@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react';
-import { IProductCart } from '../../../shared/interfaces/ProductCart';
-import { ICartItemProps } from '../../../shared/interfaces/CartProps';
+import { IProductCart } from '../../../shared/interfaces/productCart';
+import { ICartItemProps } from '../../../shared/interfaces/cartProps';
 import { GlobalContext, CartContextType } from '../../../shared/context/GlobalContext';
-import { setLocal } from '../../../shared/helper/LocalStorage';
+import { SetLocal } from '../../../shared/helper/LocalStorage';
 import TotalProduct from '../../../shared/helper/TotalProduct';
 import Button from '../../../shared/partial/Button';
-
 
 const Cart = (props: ICartItemProps) => {
   const { cart, setCart } = useContext(GlobalContext) as CartContextType
@@ -16,6 +15,7 @@ const Cart = (props: ICartItemProps) => {
   const handelDelete = (id: string) => {
     const newCart = productCart.filter((item: IProductCart) => item.id !== id);
     setCart(newCart)
+    SetLocal('cart', newCart)
   };
 
   const handleQuantity = (mess: string) => {
@@ -35,8 +35,8 @@ const Cart = (props: ICartItemProps) => {
       default: break;
     }
     setCart(productCart)
+    SetLocal('cart', productCart)
   }
-  setLocal('cart', productCart)
 
   return (
     <tr className="product-item">

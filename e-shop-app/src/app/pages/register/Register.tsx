@@ -1,8 +1,9 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { ChangeEvent, FormEvent, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext, RegisterContextType } from "../../shared/context/GlobalContext";
-import { setLocal } from "../../shared/helper/LocalStorage";
+import { SetLocal } from "../../shared/helper/LocalStorage";
 import Button from "../../shared/partial/Button";
+import Input from "../../shared/partial/Input";
 
 const Register = () => {
   
@@ -11,15 +12,15 @@ const Register = () => {
 
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
-  const repasswordRef = useRef<HTMLInputElement>(null)
+  const comfirmPasswordRef = useRef<HTMLInputElement>(null)
 
   const [state, setState] = React.useState({
     email:'',
     password: '',
-    repassword: '',
+    comfirmPassword: '',
   });
 
-  const handleInput = (e: any) => {
+  const handleInput = (e:ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const nameInput = e.target.name
     setState({
@@ -28,13 +29,13 @@ const Register = () => {
     });
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
     emailRef.current?.classList.remove('error')
     passwordRef.current?.classList.remove('error') 
-    repasswordRef.current?.classList.remove('error') 
-    
+    comfirmPasswordRef.current?.classList.remove('error') 
     let flag = true;
+
     const emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
     if(state.email === '' || !emailReg.test(state.email)){
@@ -47,13 +48,13 @@ const Register = () => {
       flag = false
     }
 
-    if(state.repassword === '' || state.password !== state.repassword){
-      repasswordRef.current?.classList.add('error')
+    if(state.comfirmPassword === '' || state.password !== state.comfirmPassword){
+      comfirmPasswordRef.current?.classList.add('error')
       flag = false
     }
 
     if(flag){
-      setLocal('token', state.email)
+      SetLocal('token', state.email)
       setUser(state.email)
       navigate('/')
     }
@@ -65,11 +66,12 @@ const Register = () => {
         <form className="register-form" onSubmit={(e)=>handleSubmit(e)}>
           <input className="register-input" type="text" name="email" value={state.email} placeholder="Enter your email" ref={emailRef} onChange={(e) => handleInput(e)} />
           <input className="register-input" type="password" name="password" value={state.password} placeholder="Enter your password" ref={passwordRef} onChange={(e) => handleInput(e)} />
-          <input className="register-input" type="password" name="repassword" value={state.repassword} placeholder="Retype your password" ref={repasswordRef} onChange={(e) => handleInput(e)} />
+          <input className="register-input" type="password" name="comfirmPassword" value={state.comfirmPassword} placeholder="Retype your password" ref={comfirmPasswordRef} onChange={(e) => handleInput(e)} />
           <Button className={"btn btn-primary btn-register"} type={"submit"} text={'Register'}/>
         </form>
       </section>
     </main>
   )
 }
+
 export default Register;

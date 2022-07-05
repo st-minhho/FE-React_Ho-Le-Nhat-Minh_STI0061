@@ -1,4 +1,4 @@
-import { IProductCart } from './ProductCart'
+import { IProductCart } from './productCart'
 
 export interface ICartProps {
   cart: IProductCart[]

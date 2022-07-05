@@ -1,4 +1,4 @@
-import IButton from "../interfaces/Button";
+import IButton from "../interfaces/button";
 
 const Button = ({text, className, onClick}:IButton) => {
   return(

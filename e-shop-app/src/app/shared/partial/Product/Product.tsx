@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { GlobalContext, CartContextType } from '../../context/GlobalContext';
-import { setLocal } from '../../helper/LocalStorage';
-import { IProduct } from '../../interfaces/Product';
-import { IProductCart } from '../../interfaces/ProductCart';
+import { SetLocal } from '../../helper/LocalStorage';
+import { IProduct } from '../../interfaces/product';
+import { IProductCart } from '../../interfaces/productCart';
 import NormalPrices from './NormalPrice';
 import SalePrices from './SalePrices';
 import Button from '../Button';
@@ -21,7 +21,7 @@ const Product = (props: IProduct) => {
         newCart.push({ ...props, qty: 1 })
       }
     }
-    setLocal('cart', newCart)
+    SetLocal('cart', newCart)
     setCart(newCart)
   }
 

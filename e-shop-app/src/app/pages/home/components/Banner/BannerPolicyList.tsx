@@ -1,4 +1,4 @@
-import { ICampaign } from '../../../../shared/interfaces/Campaign';
+import { ICampaign } from '../../../../shared/interfaces/campaign';
 import BannerPolicy from './BannerPolicy';
 
 interface CampaignData {

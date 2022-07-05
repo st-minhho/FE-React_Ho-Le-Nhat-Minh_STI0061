@@ -1,8 +1,8 @@
-export const getLocal = (key: string) => {
+export const GetLocal = (key: string) => {
   return localStorage.getItem(key);
 };
 
-export const setLocal = (key: string, value: any) => {
+export const SetLocal = (key: string, value: any) => {
   if (key) {
     if (typeof value !== 'string') {
       localStorage.setItem(key, JSON.stringify(value));
@@ -12,7 +12,7 @@ export const setLocal = (key: string, value: any) => {
   }
 };
 
-export const removeLocal = (key: string) => {
+export const RemoveLocal = (key: string) => {
   if (key) {
     localStorage.removeItem(key);
   }
