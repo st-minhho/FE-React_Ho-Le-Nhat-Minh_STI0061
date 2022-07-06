@@ -6,29 +6,16 @@ import Blog from './components/blogs';
 import Banner from './components/banner';
 import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPoroducts } from './components/home.actions';
 
 const Home = () => {
-
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const { isLoading, data } = useSelector((state: any) => state.home)
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch('https://6088e20da6f4a300174271e7.mockapi.io/products')
-      .then(response => response.json())
-      .then(data => {
-        setData(data)
-        setIsLoading(false)
-      })
-      .catch(() => {
-        setIsLoading(false);
-      });
+    dispatch<any>(getPoroducts())
   }, [])
-
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, [location]);
 
   return isLoading ? (<LoadingSpinner />)
     : (<main className='home-page'>

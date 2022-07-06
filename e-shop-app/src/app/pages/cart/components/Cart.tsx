@@ -3,12 +3,11 @@ import { ICartItemProps } from '../../../shared/interfaces/cartProps';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseToCart, deleteCart, increaseToCart } from '../cart.actions';
+import { deleteCart, updateQuantityCart } from '../cart.actions';
 import { handlePrice } from '../../../shared/helper/uniprice';
 
 const Cart = (props: ICartItemProps) => {
 
-  const { carts } = useSelector((state: any) => state.carts);
   const dispatch = useDispatch();
   const [qty, setQty] = useState('');
   const total: number = TotalProduct(props.discount, props.price, props.qty);
@@ -19,18 +18,7 @@ const Cart = (props: ICartItemProps) => {
   };
 
   const handleQuantity = (mess: string) => {
-    switch (mess) {
-      case 'plus': {
-        dispatch(increaseToCart(props.id));
-        break;
-      }
-      case 'minus': {
-        dispatch(decreaseToCart(props.id));
-        break;
-      }
-
-      default: return carts;
-    }
+    dispatch(updateQuantityCart(props.id, mess));
   }
 
   return (

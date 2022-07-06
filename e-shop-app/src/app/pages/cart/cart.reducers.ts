@@ -4,16 +4,17 @@ import { getStorage, setStorage } from '../../shared/helper/localstorage';
 import { IProductCart } from '../../shared/interfaces/productCart';
 
 interface IInitialState {
-  carts : any
+  carts: any
 }
 
 export const initialState: IInitialState = {
-  carts: getStorage('cart',[]) 
+  carts: getStorage('cart', [])
 }
 
 export const cartReducer = (state = initialState, action: IAction) => {
-  
+
   switch (action.type) {
+
     case TYPES.ADD_CART: {
       return {
         ...state,
@@ -21,29 +22,20 @@ export const cartReducer = (state = initialState, action: IAction) => {
       };
     }
 
-    case TYPES.DECREASE_CART: {
+    case TYPES.UPDATE_CART: {
       const newCart = [...state.carts]
-      if(newCart){
-        const index = newCart.findIndex((item:any)=>item.id === action.payload)
+      const index = newCart.findIndex((item: any) => item.id === action.payload.id)
+
+      if (action.payload.mess === 'plus') {
+        newCart[index].qty++
+      } else {
         if (newCart[index].qty > 1) {
           newCart[index].qty--
         } else {
           newCart.splice(index, 1);
         }
       }
-      setStorage('cart', newCart)
-      return {
-        ...state,
-        carts: newCart,
-      };
-    }
-    
-    case TYPES.INCREASE_CART: {
-      const newCart = [...state.carts]
-      if(newCart){
-        const index = newCart.findIndex((item:any)=>item.id === action.payload)
-        newCart[index].qty++
-      }
+
       setStorage('cart', newCart)
       return {
         ...state,
@@ -59,7 +51,8 @@ export const cartReducer = (state = initialState, action: IAction) => {
         carts: newCart
       };
     }
-    
-    default: return state
+
+    default: return state;
+
   }
 }

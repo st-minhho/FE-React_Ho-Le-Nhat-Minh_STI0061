@@ -3,7 +3,6 @@ import Product from './Product';
 
 const ProductList = (props : IProductData) => {
   const {products} = props
-  console.log(products)
   return (
     <ul className="row js-product-list">
       {products.map((item:IProduct) => (

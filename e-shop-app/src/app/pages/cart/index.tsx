@@ -3,7 +3,7 @@ import CartList from './components/CartList';
 import TotalOrder from './components/TotalOrder';
 
 const Index = () => {
-  const {carts} = useSelector((state:any) => state.carts )
+  const {carts} = useSelector((state:any) => state.carts)
   return (
     <main>
       <section className="section-cart">

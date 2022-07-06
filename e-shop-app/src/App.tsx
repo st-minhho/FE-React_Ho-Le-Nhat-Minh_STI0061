@@ -8,6 +8,7 @@ import Register from './app/pages/register/Register';
 import { ScrollToTop } from './app/shared/partial/ScrollToTop';
 
 function App() {
+  
   return (
     <ScrollToTop>
       <Header />
