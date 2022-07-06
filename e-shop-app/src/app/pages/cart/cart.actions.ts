@@ -9,20 +9,6 @@ export const addToCart = (cart: any) =>{
   }
 }
 
-export const increaseToCart = (id: string) => {
-  return{
-    type: TYPES.INCREASE_CART,
-    payload: id
-  }
-}
-
-export const decreaseToCart = (id: string) => {
-  return{
-    type: TYPES.DECREASE_CART,
-    payload: id
-  }
-}
-
 export const updateQuantityCart = (id: string, mess: string) => {
   return{
     type: TYPES.UPDATE_CART,

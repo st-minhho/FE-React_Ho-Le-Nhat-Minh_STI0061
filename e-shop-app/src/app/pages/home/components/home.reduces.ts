@@ -19,7 +19,7 @@ export const homeReducer = (state = initialState, action: IAction) => {
     case TYPES.GET_PRODUCTS: {
       return {
         ...state, 
-        isLoading: false
+        isLoading: true
       }
     }
 
