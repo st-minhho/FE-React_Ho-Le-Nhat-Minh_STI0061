@@ -2,7 +2,7 @@ import axios from "axios";
 import { AnyAction, Dispatch } from "redux";
 import * as TYPES from '../../../shared/types'
 
-export const getPoroducts = () => async (dispatch: Dispatch<AnyAction>) => {
+export const getProducts = () => async (dispatch: Dispatch<AnyAction>) => {
 
   try {
     dispatch({ type: TYPES.GET_PRODUCTS });
@@ -16,5 +16,12 @@ export const getPoroducts = () => async (dispatch: Dispatch<AnyAction>) => {
       type: TYPES.GET_PRODUCTS_FAILED, 
       payload: err 
     });
+  }
+}
+
+export const filterProduct = (idChecked: any) =>{
+  return {
+    type: TYPES.FILTER_PRODUCT,
+    payload: idChecked,
   }
 }
