@@ -1,4 +1,4 @@
-import * as TYPES from '../../shared/types'
+import * as TYPES from '../../shared/constants/types';
 import { IAction } from "../../shared/interfaces/action"
 
 interface IInitialState {
@@ -50,14 +50,14 @@ export const homeReducer = (state = initialState, action: IAction) => {
 export const categoryReducer = (state = initialState, action: IAction) => {
   
   switch(action.type){
-    case TYPES.GET_CATEGORY: {
+    case TYPES.GET_CATEGORIES: {
       return {
         ...state, 
         isLoading: true
       }
     }
 
-    case TYPES.GET_CATEGORY_SUCCESS: {
+    case TYPES.GET_CATEGORIES_SUCCESS: {
       return{
         ...state,
         category: action.payload,
@@ -66,7 +66,7 @@ export const categoryReducer = (state = initialState, action: IAction) => {
       }
     }
 
-    case TYPES.GET_CATEGORY_FAILED: {
+    case TYPES.GET_CATEGORIES_FAILED: {
       return{
         ...state,
         category: [],
@@ -74,6 +74,7 @@ export const categoryReducer = (state = initialState, action: IAction) => {
         isLoading: true
       }
     }
+
     default: return state;
   }
 }

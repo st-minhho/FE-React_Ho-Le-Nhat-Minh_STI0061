@@ -9,9 +9,10 @@ import { addToCart } from '../../../pages/cart/cart.actions';
 
 const Product = (props: IProduct) => {
 
-  const { carts } = useSelector((state: any) => state.carts)
   const dispatch = useDispatch()
+  const { carts } = useSelector((state: any) => state.carts)
   const { category } = useSelector((state: any) => state.category)
+
   const handleAddToCart = (productID: string) => {
     const newCart = [...carts]
     if (newCart) {
@@ -39,13 +40,7 @@ const Product = (props: IProduct) => {
         <div className="product-content">
           <h4 className="product-name">{props.name}</h4>
           <span>
-            {
-              category.map((item: any) => {
-                if (item.id === parseInt(props.category)) {
-                  return item.name
-                }
-              })
-            }
+            {category[props.category]}
           </span>
           <div className="product-price">
             <SalePrices discount={props.discount} price={props.price} />

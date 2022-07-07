@@ -7,14 +7,14 @@ import Banner from './components/banner';
 import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from './home.actions';
-import { getCategory } from './home.actions';
+import { getCategories } from './home.actions';
 
 const Home = () => {
   const dispatch = useDispatch()
   const { isLoading, data } = useSelector((state: any) => state.home)
 
   useEffect(() => {
-    dispatch(getCategory())
+    dispatch(getCategories())
     dispatch(getProducts())
   }, [])
 
@@ -25,7 +25,6 @@ const Home = () => {
     <main className='home-page'>
       <Banner />
       <Blog />
-      
       <SectionProduct
         title='Selected just for you'
         hasButton={true}

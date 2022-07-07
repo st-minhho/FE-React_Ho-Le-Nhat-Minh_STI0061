@@ -1,4 +1,4 @@
-import * as TYPES from '../../shared/types'
+import * as TYPES from '../../shared/constants/types'
 import { IAction } from "../../shared/interfaces/action"
 import { getStorage, setStorage } from '../../shared/helper/localstorage';
 import { IProductCart } from '../../shared/interfaces/productCart';

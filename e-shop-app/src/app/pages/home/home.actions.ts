@@ -1,4 +1,4 @@
-import * as TYPES from '../../shared/types';
+import * as TYPES from '../../shared/constants/types';
 
 export const getProducts = () => ({
   type: TYPES.GET_PRODUCTS,
@@ -14,16 +14,22 @@ export const getProductsError = (error: any) => ({
   payload: error,
 });
 
-export const getCategory = () => ({
-  type: TYPES.GET_CATEGORY,
+export const getCategories = () => ({
+  type: TYPES.GET_CATEGORIES,
 });
 
-export const getCategorySuccess = (category: any) => ({
-  type: TYPES.GET_CATEGORY_SUCCESS,
+export const getCategoriesSuccess = (category: any) => ({
+  type: TYPES.GET_CATEGORIES_SUCCESS,
   payload: category,
 });
 
-export const getCategoryError = (error: any) => ({
-  type: TYPES.GET_CATEGORY_FAILED,
+export const getCategoriesError = (error: any) => ({
+  type: TYPES.GET_CATEGORIES_FAILED,
   payload: error,
 });
+
+export const filterProduct = (idChecked: any) => ({
+  type: TYPES.GET_CATEGORIES_SUCCESS,
+  payload: idChecked,
+});
+
