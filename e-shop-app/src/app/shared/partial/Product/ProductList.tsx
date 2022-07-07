@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import { IProduct, IProductData } from '../../interfaces/product';
 import Product from './Product';
 

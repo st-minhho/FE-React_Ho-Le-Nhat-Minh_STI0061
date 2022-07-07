@@ -1,6 +1,6 @@
-import Cart from './Cart';
 import { IProductCart } from '../../../shared/interfaces/productCart';
 import { ICartProps} from '../../../shared/interfaces/cartProps';
+import Cart from './Cart';
 
 const CartList = (props: ICartProps) => {
   const { cart } = props;

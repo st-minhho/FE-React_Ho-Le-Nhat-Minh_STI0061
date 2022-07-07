@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
+import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from './home.actions';
+import { getCategories } from './home.actions';
 import { SectionProduct } from './components/product';
 import Policies from './components/policies';
 import Form from './components/form';
 import Blog from './components/blogs';
 import Banner from './components/banner';
-import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from './home.actions';
-import { getCategories } from './home.actions';
 
 const Home = () => {
   const dispatch = useDispatch()

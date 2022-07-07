@@ -1,11 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { setStorage } from '../../helper/localstorage';
 import { IProduct } from '../../interfaces/product';
 import { IProductCart } from '../../interfaces/productCart';
+import { addToCart } from '../../../pages/cart/cart.actions';
 import NormalPrices from './NormalPrice';
 import SalePrices from './SalePrices';
 import Button from '../Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../../pages/cart/cart.actions';
 
 const Product = (props: IProduct) => {
 
