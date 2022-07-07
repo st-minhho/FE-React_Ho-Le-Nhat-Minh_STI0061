@@ -1,10 +1,9 @@
-import { useContext} from 'react';
-import { GlobalContext, CartContextType } from '../../shared/context/GlobalContext';
+import { useSelector } from 'react-redux';
 import CartList from './components/CartList';
 import TotalOrder from './components/TotalOrder';
 
 const Index = () => {
-  const { cart } = useContext(GlobalContext) as CartContextType
+  const {carts} = useSelector((state:any) => state.carts)
   return (
     <main>
       <section className="section-cart">
@@ -21,11 +20,10 @@ const Index = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <CartList cart={cart}
-              />
+              <CartList cart={carts}/>
             </table>
           </div>
-          <TotalOrder cart={cart} />
+          <TotalOrder cart={carts} />
         </div>
       </section>
     </main>

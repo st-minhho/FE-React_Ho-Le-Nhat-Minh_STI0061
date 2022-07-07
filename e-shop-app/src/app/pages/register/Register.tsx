@@ -1,14 +1,14 @@
 import React, { ChangeEvent, FormEvent, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext, RegisterContextType } from "../../shared/context/GlobalContext";
-import { SetLocal } from "../../shared/helper/localstorage";
+// import { GlobalContext, RegisterContextType } from "../../shared/context/GlobalContext";
+import { setStorage } from "../../shared/helper/localstorage";
 import Button from "../../shared/partial/Button";
 import Input from "../../shared/partial/Input";
 
 const Register = () => {
   
   const navigate = useNavigate()
-  const {setUser} = useContext(GlobalContext) as RegisterContextType
+  // const {setUser} = useContext(GlobalContext) as RegisterContextType
 
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
@@ -54,8 +54,8 @@ const Register = () => {
     }
 
     if(flag){
-      SetLocal('token', state.email)
-      setUser(state.email)
+      setStorage('token', state.email)
+      // setUser(state.email)
       navigate('/')
     }
   }

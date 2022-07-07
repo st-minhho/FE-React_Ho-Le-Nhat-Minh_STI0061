@@ -1,41 +1,24 @@
-import { useContext, useState } from 'react';
-import { IProductCart } from '../../../shared/interfaces/productCart';
+import { useState } from 'react';
 import { ICartItemProps } from '../../../shared/interfaces/cartProps';
-import { GlobalContext, CartContextType } from '../../../shared/context/GlobalContext';
-import { SetLocal } from '../../../shared/helper/localstorage';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCart, updateQuantityCart } from '../cart.actions';
+import { handlePrice } from '../../../shared/helper/uniprice';
 
 const Cart = (props: ICartItemProps) => {
-  const { cart, setCart } = useContext(GlobalContext) as CartContextType
-  const total: number = TotalProduct(props.discount, props.price, props.qty);
+
+  const dispatch = useDispatch();
   const [qty, setQty] = useState('');
-  const productCart = [...cart]
+  const total: number = TotalProduct(props.discount, props.price, props.qty);
+  const price = handlePrice(props.discount, props.price)
 
   const handelDelete = (id: string) => {
-    const newCart = productCart.filter((item: IProductCart) => item.id !== id);
-    setCart(newCart)
-    SetLocal('cart', newCart)
+    dispatch(deleteCart(id))
   };
 
   const handleQuantity = (mess: string) => {
-    switch (mess) {
-      case 'plus': {
-        productCart[props.index].qty++
-        break;
-      }
-      case 'minus': {
-        if (productCart[props.index].qty > 1) {
-          productCart[props.index].qty--
-        } else {
-          productCart.splice(props.index, 1);
-        }
-        break;
-      }
-      default: break;
-    }
-    setCart(productCart)
-    SetLocal('cart', productCart)
+    dispatch(updateQuantityCart(props.id, mess));
   }
 
   return (
@@ -45,14 +28,14 @@ const Cart = (props: ICartItemProps) => {
       </td>
       <td className="image-prod">
         <div className="cart-product-img">
-          <img src={props.imgSrc} alt="" />
+          <img src={props.image} alt="" />
         </div>
       </td>
       <td className="product-name">
         <h4>{props.name}</h4>
       </td>
       <td className="price">
-        ${props.price - Math.round(props.price * props.discount)}
+        ${price}
       </td>
       <td className="quantity">
         <div className="js-cart-quantity-button">
@@ -65,4 +48,5 @@ const Cart = (props: ICartItemProps) => {
     </tr>
   );
 };
+
 export default Cart;

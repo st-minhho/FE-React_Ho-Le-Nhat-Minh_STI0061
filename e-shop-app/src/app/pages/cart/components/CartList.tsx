@@ -4,6 +4,7 @@ import { ICartProps} from '../../../shared/interfaces/cartProps';
 
 const CartList = (props: ICartProps) => {
   const { cart } = props;
+  
   return (
     <tbody className="product-cart-list">
       {cart.map((item: IProductCart, index:number) => (

@@ -1,20 +1,19 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
-import { GlobalContext, RegisterContextType } from '../../../context/GlobalContext';
 import TotalCart from '../../../helper/totalCart';
 import CategoryList from './CategoriesList';
 
 const Header = () => {
 
   const count = TotalCart();
-  const {user} = useContext(GlobalContext) as RegisterContextType
+  // const {user} = useContext(GlobalContext) as RegisterContextType
   
   return (
     <header>
       <div className="container">
         <div className="section-header">
-        {user!=='[]' &&  <p className="show-email">Acount: {user}</p>}
+        {/* {user!=='[]' &&  <p className="show-email">Acount: {}</p>} */}
           <div className="header-inner">
             <Link to="/" className="header-brand">
               <h1 className="brand">

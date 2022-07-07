@@ -3,7 +3,8 @@ export interface IProduct {
   name: string,
   price: number,
   discount: number,
-  imgSrc: string,
+  image: string,
+  catergory: string
 }
 
 export interface IProductData {

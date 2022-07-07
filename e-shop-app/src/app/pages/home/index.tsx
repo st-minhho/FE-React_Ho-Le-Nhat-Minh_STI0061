@@ -1,29 +1,40 @@
-import Selected from './components/selected';
-import Today from './components/today';
+import { useEffect } from 'react';
+import { SectionProduct } from './components/product';
 import Policies from './components/policies';
 import Form from './components/form';
 import Blog from './components/blogs';
 import Banner from './components/banner';
-import { useEffect } from 'react';
-import { SetLocal } from '../../shared/helper/localstorage';
-import { ProductData } from '../../shared/constants/productData';
-
+import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPoroducts } from './components/home.actions';
 
 const Home = () => {
-  useEffect(()=>{
-    const data = ProductData;
-    SetLocal('product',data)
-  },[])
+  const dispatch = useDispatch()
+  const { isLoading, data } = useSelector((state: any) => state.home)
+
+  useEffect(() => {
+    dispatch<any>(getPoroducts())
+  }, [])
+
+  if (isLoading) {
+    return <LoadingSpinner />
+  }
   return (
     <main className='home-page'>
-      <Banner/>
+      <Banner />
       <Blog />
-      <Selected />
-      <Policies/>
-      <Today/>
-      <Form/>
+      <SectionProduct
+        title='Selected just for you'
+        hasButton={true}
+        products={data} />
+      <Policies />
+      <SectionProduct
+        title='Products in today'
+        hasButton={false}
+        products={data} />
+      <Form />
     </main>
-
   )
 }
+
 export default Home;

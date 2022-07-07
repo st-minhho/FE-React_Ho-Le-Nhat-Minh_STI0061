@@ -5,10 +5,12 @@ import Footer from './app/shared/components/layout/Footer/Footer';
 import Home from './app/pages/home'
 import Cart from './app/pages/cart'
 import Register from './app/pages/register/Register';
+import { ScrollToTop } from './app/shared/partial/ScrollToTop';
 
 function App() {
+  
   return (
-    <>
+    <ScrollToTop>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -16,7 +18,7 @@ function App() {
         <Route path='/register' element={<Register />} />
       </Routes>
       <Footer />
-    </>
+    </ScrollToTop>
   );
 }
 
