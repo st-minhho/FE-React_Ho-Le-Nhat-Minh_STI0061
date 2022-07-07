@@ -14,9 +14,9 @@ const Home = () => {
   const dispatch = useDispatch()
   const { isLoading, data } = useSelector((state: any) => state.home)
   const [searchParams, setSearchParams] = useSearchParams();
-
+  
   const value = searchParams.get('categories');
-  const [isChecked, setIsChecked] = useState<any>(value === '' ? [] : value?.split(','));
+  const [isChecked, setIsChecked] = useState<any>(value === '' || value === null ? [] : value?.split(','));
 
   const queryParam = () => {
     if (isChecked.length === 0) {
@@ -28,13 +28,14 @@ const Home = () => {
   }
 
   useEffect(() => {
-    queryParam()
-  }, [isChecked])
-
-  useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
   }, [])
+  
+  useEffect(() => {
+      queryParam()
+  }, [isChecked])
+
 
   if (isLoading) {
     return <LoadingSpinner />

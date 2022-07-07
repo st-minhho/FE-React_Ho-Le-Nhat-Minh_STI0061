@@ -28,8 +28,5 @@ export const getCategoriesError = (error: any) => ({
   payload: error,
 });
 
-export const filterProduct = (idChecked: any) => ({
-  type: TYPES.FILTER_CATEGORIES,
-  payload: idChecked,
-});
+
 

@@ -4,7 +4,6 @@ const ProductList = (props: any) => {
   const { products, isChecked } = props
 
   const filterProduct = (arr: any) => {
-    console.log(arr.length)
     if (arr.length !== 0) {
       return products.filter((item: any) => {
         return isChecked.includes(item.category)

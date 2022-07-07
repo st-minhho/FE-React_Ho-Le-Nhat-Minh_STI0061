@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { filterProduct } from "../../home.actions";
+import { useSelector } from "react-redux";
 const ProductCategories = ({isChecked, setIsChecked}:any) => {
 
   const { category } = useSelector((state: any) => state.category)

@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { IProduct, IProductData } from "../../../../shared/interfaces/product"
+import { IProduct } from "../../../../shared/interfaces/product"
 import ProductList from "../../../../shared/partial/Product/ProductList"
 import { TitleProduct } from "../../../../shared/partial/Title"
 import ProductCategories from "../categories"
