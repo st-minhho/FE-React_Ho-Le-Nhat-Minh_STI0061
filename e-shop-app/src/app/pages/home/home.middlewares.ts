@@ -17,7 +17,6 @@ export function* getProducts() {
 export function* getCategories() {
   try {
     const res: AxiosResponse<any> = yield axios.get(`${ENDPOINT}/categories`);
-    console.log(res)
     yield put(getCategoriesSuccess(Object.fromEntries(
       [...res.data].map((item) => Object.values(item))
     )));

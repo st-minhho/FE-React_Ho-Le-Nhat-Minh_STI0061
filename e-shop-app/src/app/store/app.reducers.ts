@@ -4,7 +4,7 @@ import { categoryReducer, homeReducer } from '../pages/home/home.reduces';
 const reducers = {
   home: homeReducer,
   carts: cartReducer,
-  category:categoryReducer
+  category: categoryReducer
 };
 
 const appReducer = combineReducers({ ...reducers });

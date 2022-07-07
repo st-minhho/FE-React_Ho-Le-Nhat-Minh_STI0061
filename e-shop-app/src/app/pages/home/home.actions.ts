@@ -29,7 +29,7 @@ export const getCategoriesError = (error: any) => ({
 });
 
 export const filterProduct = (idChecked: any) => ({
-  type: TYPES.GET_CATEGORIES_SUCCESS,
+  type: TYPES.FILTER_CATEGORIES,
   payload: idChecked,
 });
 
