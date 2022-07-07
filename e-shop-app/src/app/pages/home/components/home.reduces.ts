@@ -5,26 +5,28 @@ interface IInitialState {
   data: any,
   error: string,
   isLoading: boolean
+  // idChecked: any
 }
 
 export const initialState: IInitialState = {
   data: [],
   error: '',
-  isLoading: true
+  isLoading: true,
+  // idChecked: []
 }
 
 export const homeReducer = (state = initialState, action: IAction) => {
-  
-  switch(action.type){
+
+  switch (action.type) {
     case TYPES.GET_PRODUCTS: {
       return {
-        ...state, 
+        ...state,
         isLoading: true
       }
     }
 
     case TYPES.GET_PRODUCTS_SUCCESS: {
-      return{
+      return {
         ...state,
         data: action.payload,
         error: '',
@@ -33,13 +35,23 @@ export const homeReducer = (state = initialState, action: IAction) => {
     }
 
     case TYPES.GET_PRODUCTS_FAILED: {
-      return{
+      return {
         ...state,
         data: [],
         error: action.payload,
         isLoading: true
       }
     }
+
+    // case TYPES.FILTER_PRODUCT: {
+    //   return {
+    //     ...state,
+    //     data: [],
+    //     error: '',
+    //     isLoading: true,
+    //     idChecked: action.payload
+    //   };
+    // }
 
     default: return state;
   }
