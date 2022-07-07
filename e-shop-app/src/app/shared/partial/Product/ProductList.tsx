@@ -4,12 +4,14 @@ import Product from './Product';
 
 const ProductList = (props: IProductData) => {
   const { products } = props
-  const { categories } = useSelector((state: any) => state.categories)
+  // const { categories } = useSelector((state: any) => state.home)
+  const { idChecked } = useSelector((state: any) => state.home)
 
-  const filterProduct = (arr: any) => {
+  console.log(products)
+  const filterProduct2 = (arr: any) => {
     if (arr.length !== 0) {
       return products.filter((item: any) => {
-        return categories.includes(item.category)
+        return idChecked.includes(item.category)
       })
     }
     return products
@@ -22,7 +24,7 @@ const ProductList = (props: IProductData) => {
   return (
     <>
       <ul className="row js-product-list">
-        {renderProduct(filterProduct(categories))}
+        {renderProduct(filterProduct2(idChecked))}
       </ul>
     </>
   )

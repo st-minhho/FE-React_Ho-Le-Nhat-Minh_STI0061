@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { filterProduct } from "../home.actions";
 import { CategoryProduct } from "./CategoryProducts"
-import { filterProduct } from "./catergories.actions";
 
 export const CategoriesList = () => {
   const [checked, setChecked] = useState([]);
@@ -15,8 +15,8 @@ export const CategoriesList = () => {
       updatedList.splice(updatedList.indexOf(e.target.id), 1);
     }
     setChecked(updatedList);
+    console.log(updatedList)
     dispatch(filterProduct(updatedList))
-    // dispatch(filterProduct2(updatedList))
   }
 
   return (

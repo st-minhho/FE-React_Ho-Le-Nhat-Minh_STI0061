@@ -5,14 +5,14 @@ interface IInitialState {
   data: any,
   error: string,
   isLoading: boolean
-  // idChecked: any
+  idChecked: any
 }
 
 export const initialState: IInitialState = {
   data: [],
   error: '',
   isLoading: true,
-  // idChecked: []
+  idChecked: []
 }
 
 export const homeReducer = (state = initialState, action: IAction) => {
@@ -43,15 +43,12 @@ export const homeReducer = (state = initialState, action: IAction) => {
       }
     }
 
-    // case TYPES.FILTER_PRODUCT: {
-    //   return {
-    //     ...state,
-    //     data: [],
-    //     error: '',
-    //     isLoading: true,
-    //     idChecked: action.payload
-    //   };
-    // }
+    case TYPES.FILTER_PRODUCT: {
+      return {
+        ...state,
+        idChecked: action.payload
+      };
+    }
 
     default: return state;
   }

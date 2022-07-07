@@ -19,9 +19,9 @@ export const getProducts = () => async (dispatch: Dispatch<AnyAction>) => {
   }
 }
 
-// export const filterProduct2 = (isChecked: any) =>{
-//   return {
-//     type: TYPES.FILTER_PRODUCT,
-//     payload: isChecked,
-//   }
-// }
+export const filterProduct = (idChecked: any) =>{
+  return {
+    type: TYPES.FILTER_PRODUCT,
+    payload: idChecked,
+  }
+}

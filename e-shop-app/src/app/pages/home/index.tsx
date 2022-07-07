@@ -7,19 +7,16 @@ import Banner from './components/banner';
 import { LoadingSpinner } from '../../shared/components/layout/LoadingSpinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from './components/home.actions';
-import { createSearchParams, useLocation, useSearchParams } from 'react-router-dom';
+import { createSearchParams, useSearchParams } from 'react-router-dom';
 
 const Home = () => {
-  const location = useLocation()
   const dispatch = useDispatch()
-  const { isLoading, data } = useSelector((state: any) => state.home)
-  const { categories } = useSelector((state: any) => state.categories)
-
+  const { isLoading, data, idChecked } = useSelector((state: any) => state.home)
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    setSearchParams(createSearchParams({ categories: categories.join(',') }))
-  }, [categories])
+    setSearchParams(createSearchParams({ categories: idChecked.join(',') }))
+  }, [idChecked])
 
   useEffect(() => {
     dispatch<any>(getProducts())
@@ -28,7 +25,6 @@ const Home = () => {
   useEffect(() => {
     window.scroll(0, 0)
   }, [isLoading])
-
 
   if (isLoading) {
     return <LoadingSpinner />
