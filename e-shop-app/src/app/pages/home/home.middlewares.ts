@@ -8,7 +8,6 @@ const ENDPOINT = 'https://6088e20da6f4a300174271e7.mockapi.io';
 export function* getProducts() {
   try {
     const res: AxiosResponse<any> = yield axios.get(`${ENDPOINT}/products`);
-    console.log(res)
     yield put(getProductsSuccess(res.data));
   } catch (error) {
     yield put(getProductsError(error));

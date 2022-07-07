@@ -3,12 +3,14 @@ import { IAction } from "../../shared/interfaces/action"
 
 interface IInitialState {
   data: any,
+  category: any,
   error: string,
   isLoading: boolean
 }
 
 export const initialState: IInitialState = {
   data: [],
+  category: [],
   error: '',
   isLoading: true
 }
@@ -43,18 +45,6 @@ export const homeReducer = (state = initialState, action: IAction) => {
 
     default: return state;
   }
-}
-
-interface IInitialStateCategory {
-  category: any,
-  error: string,
-  isLoading: boolean
-}
-
-export const initialStateCategory: IInitialStateCategory = {
-  category: [],
-  error: '',
-  isLoading: true
 }
 
 export const categoryReducer = (state = initialState, action: IAction) => {
