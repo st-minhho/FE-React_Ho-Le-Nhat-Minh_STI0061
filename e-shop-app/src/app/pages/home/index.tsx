@@ -13,28 +13,29 @@ import Banner from './components/banner';
 const Home = () => {
   const dispatch = useDispatch()
   const { isLoading, data } = useSelector((state: any) => state.home)
-  const [searchParams, setSearchParams] = useSearchParams();
-  
-  const value = searchParams.get('categories');
-  const [isChecked, setIsChecked] = useState<any>(value === '' || value === null ? [] : value?.split(','));
+  const [searchParams, setSearchParams] = useSearchParams({});
 
+  const value = searchParams.get('categories');
+  const [isChecked, setIsChecked] = useState<any>(value? value.split(' ') : [] );
+  
   const queryParam = () => {
-    if (isChecked.length === 0) {
+    if (isChecked !== undefined) {
+      setSearchParams({ categories: isChecked.join(' ') })
+    } else {
       searchParams.delete('categories');
       setSearchParams(searchParams);
-    } else {
-      setSearchParams({ categories: isChecked.join(',') })
     }
   }
+  
+  useEffect(() => {
+    queryParam();
+  }, [isChecked])
 
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getProducts())
   }, [])
-  
-  useEffect(() => {
-      queryParam()
-  }, [isChecked])
+
 
 
   if (isLoading) {

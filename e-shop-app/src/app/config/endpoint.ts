@@ -1,1 +1,13 @@
-export const ENDPOINT = 'https://6088e20da6f4a300174271e7.mockapi.io';
+const RESOURCE = {
+  products: 'products',
+  categories: 'categories'
+}
+
+export const ENDPOINT = {
+  products: {
+    index: `${RESOURCE.products}`
+  },
+  categories: {
+    index: `${RESOURCE.categories}`
+  }
+}

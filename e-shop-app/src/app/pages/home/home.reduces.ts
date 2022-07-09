@@ -78,3 +78,4 @@ export const categoryReducer = (state = initialState, action: IAction) => {
     default: return state;
   }
 }
+

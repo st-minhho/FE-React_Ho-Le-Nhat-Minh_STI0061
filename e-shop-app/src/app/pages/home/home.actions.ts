@@ -28,5 +28,3 @@ export const getCategoriesError = (error: any) => ({
   payload: error,
 });
 
-
-

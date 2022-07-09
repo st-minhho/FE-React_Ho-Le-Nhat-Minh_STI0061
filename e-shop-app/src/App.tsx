@@ -10,7 +10,7 @@ import Header from './app/shared/components/layout/Header/Header';
 import Footer from './app/shared/components/layout/Footer/Footer';
 import Home from './app/pages/home'
 import Cart from './app/pages/cart'
-import Register from './app/pages/register/Register';
+import Register from './app/pages/auth/register/Register';
 import './App.css';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   middleware.run(appMiddleware);
 
   return (
-    <ScrollToTop>
+    // <ScrollToTop>
       <Provider store={store}>
         <Header />
         <Routes>
@@ -30,7 +30,7 @@ function App() {
         </Routes>
         <Footer />
       </Provider>
-    </ScrollToTop>
+    // </ScrollToTop>
   );
 }
 
