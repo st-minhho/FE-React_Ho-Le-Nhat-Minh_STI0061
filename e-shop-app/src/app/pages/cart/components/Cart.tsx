@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteCart, updateQuantityCart } from '../cart.actions';
+import { handlePrice } from '../../../shared/helper/uniprice';
 import { ICartItemProps } from '../../../shared/interfaces/cartProps';
 import TotalProduct from '../../../shared/helper/totalProduct';
 import Button from '../../../shared/partial/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart, updateQuantityCart } from '../cart.actions';
-import { handlePrice } from '../../../shared/helper/uniprice';
 
 const Cart = (props: ICartItemProps) => {
 

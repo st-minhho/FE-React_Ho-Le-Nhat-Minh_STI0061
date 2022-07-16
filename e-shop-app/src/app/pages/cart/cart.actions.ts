@@ -1,6 +1,4 @@
-import * as TYPES from '../../shared/types'
-import { IProduct, IProductData } from "../../shared/interfaces/product";
-import { IProductCart } from '../../shared/interfaces/productCart';
+import * as TYPES from '../../shared/constants/types'
 
 export const addToCart = (cart: any) =>{
   return {

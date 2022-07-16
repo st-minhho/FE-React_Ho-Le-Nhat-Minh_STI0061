@@ -1,14 +1,15 @@
-import * as TYPES from '../../shared/types'
+import * as TYPES from '../../shared/constants/types'
 import { IAction } from "../../shared/interfaces/action"
 import { getStorage, setStorage } from '../../shared/helper/localstorage';
 import { IProductCart } from '../../shared/interfaces/productCart';
+import { LIST_KEY } from '../../shared/constants/storageKeys';
 
 interface IInitialState {
   carts: any
 }
 
 export const initialState: IInitialState = {
-  carts: getStorage('cart', [])
+  carts: getStorage(LIST_KEY.CART, [])
 }
 
 export const cartReducer = (state = initialState, action: IAction) => {

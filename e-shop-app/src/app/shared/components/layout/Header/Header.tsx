@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../../../assets/icons';
 import TotalCart from '../../../helper/totalCart';
@@ -7,17 +7,17 @@ import CategoryList from './CategoriesList';
 const Header = () => {
 
   const count = TotalCart();
-  // const {user} = useContext(GlobalContext) as RegisterContextType
-  
+  const { token } = useSelector((state: any) => state.token)
+
   return (
     <header>
       <div className="container">
         <div className="section-header">
-        {/* {user!=='[]' &&  <p className="show-email">Acount: {}</p>} */}
+          {token.length !== 0 && <p className="show-email">Acount: {token.email}</p>}
           <div className="header-inner">
             <Link to="/" className="header-brand">
               <h1 className="brand">
-                <div className="image-logo">
+                <div className="image-logo">  
                   <img src={Icons.Logo} alt="E-shop" />
                 </div>
               </h1>
@@ -63,7 +63,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          
+
         </div>
       </div>
     </header>

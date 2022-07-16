@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import rootReducer from '../../store/root-reducer';
+// import rootReducer from '../../store/root-reducer';
 import { IProductCart } from '../interfaces/productCart';
 import { setStorage } from './localstorage';
 

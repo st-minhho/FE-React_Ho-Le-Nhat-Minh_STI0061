@@ -4,7 +4,7 @@ export interface IProduct {
   price: number,
   discount: number,
   image: string,
-  catergory: string
+  category: string
 }
 
 export interface IProductData {
